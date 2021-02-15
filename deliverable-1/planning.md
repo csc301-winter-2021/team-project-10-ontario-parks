@@ -38,10 +38,14 @@ For the testing of this app, we will have three parts:
 
 #### Q5: What are the user stories that make up the MVP?
 
- * At least 5 user stories concerning the main features of the application - note that this can broken down further
- * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
- * User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: https://www.justinmind.com/blog/user-story-examples/. **It is important that you provide a link to an artifact containing your user stories**.
- * If you have a partner, these must be reviewed and accepted by them
+|Title: Recommend Map|Priority: |Estimate: |
+|As a new Taxi driver in a coastal city,
+I want to get the position of surrounding tourist attractions anytime and anywhere, 
+so that I could pick up more tourists.|
+|Acceptance Criteria: Given our Ontario Park app,
+When user input preference and location, 
+The app will lead the user to the nearest tourists attraction that most likely to satisfy the user's preference.|
+
 
 ----
 ## Intellectual Property Confidentiality Agreement 
