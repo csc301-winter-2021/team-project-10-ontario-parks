@@ -6,44 +6,35 @@
  
 #### Q1: What are you planning to build?
 
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+We are going to build a mobile application that can educate, entertain and interpret using geo-referencing as the trigger for the "Geo-audio" automatic playback.
+The purpose of this project is to provide useful information to anyone with an interest in natural or cultural history who enjoys discovering new things that are not readily or easily identifiable in Ontario. Imagine you are traveling in a new city in Ontario, you find a park and want to know the most popular trail but there is no way to get that information. Our app can provide you those rarely seen information.
+Also, we won't give the information randomly. This app will include specific categories or subcategories, such as "health" or "history", and providing information based on users' interest. For example, if the user is a history fanatic, then the app will provide audio and text-based information about the surrounding historical sites. In addition, this project will pick up the real time-location from the user, and prevent the user with audio and text-based information about the user’s surroundings. Imagine you are traveling in a new city in Ontario, when you are getting close to a park, this app can tell you the basic information of the park such as location and history.
+
 
 
 #### Q2: Who are your target users?
 
-  > Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+Target users of the app are made up of two groups.
+The first group of users could be foreign tourists, anyone who has an interest in exploring the culture and nature scenery in Ontario. A typical persona for that would be Chen, a 30 year-old chinese tourist who traveled  to Ontario with his two friends, has rented a car to explore the nearby park. 
+The second group of targeted users would be those who try to seek inner peace from nature. They could be patient or anyone who simply wants to escape from their busy schedule. A persona for that would be Linda, a 45 year-old single mother who lives in Ontario, Linda  has to work in a stressful environment and suffers from stress and a mild depression. She could use the health function of the app while taking a walk in the park.  
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-> Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-    * Does this application exist in another form? If so, how does your differ and provide value to the users?
-    * How does this align with your partner's organization's values/mission/mandate?
+Since there are two main purposes and two different groups of target users, the question would be answered in two parts. 
+The first part focuses on the culture discovery functions designed for those who have an interest to explore the culture and nature of the area. The cultural history category of the app is capable of providing text and audio information as users travel. Users can also choose to interact with each other by adding new points of interest so that other users can check them out. In this way, the app is capable of attracting more and more people to learn about the area hand free on their way, which matches the partner organization’s interest. 
+The second part focuses on mental health therapy functions of the app, this part was designed for those who seek to have their mind cleared in nature. It was proven that walking in woods or forest therapy can be extremely useful when it comes to treating depression, PTSD and drug addiction. The app can help and guide individuals with therapeutic needs to plan their walking route. This category helps to connect more people to the area, and also helps maximizing the value of the forest, which matches the interest of our partner organization. 
+
 
 #### Q4: How will you build it?
 
-> Short (1-2 min' read max)
- * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
- * How will you deploy the application?
- * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
- * Will you be using third party applications or APIs? If so, what are they?
- * What is your testing strategy?
+We will be using Android studio to develops an Android app and iOS app for the frontend of this project, the language is java (Android studio plug-in will allow developers to run, test, and debug code on iOS devices and simulator). The app should be able to provide the service base on the user locations and preference. using java.net for communicating with backend server to get the data from the database, or sending the user information and preference to the server. when the app needs to check the location of the user, we will use android.location.LocationListerner or com.google.android.gms.location.LocationListerner. The user should be able to use only the voice to control the app, and for the voice recognition feature of this app, we will use android.speech.
+For the backend, we will use VSCode and the language will be javascrip. We will use mongoose db to store the datas and user information. And for sending the data to the frontend, we will use node.js, express.js.
+
+For the testing of this app, we will have three parts:
+* UI test: This will be a frontend only test (without connecting to the backend). We will have some fake data for this test and check the app could work perfectly. Including displaying the information correctly, ability to recognize the human voice.
+* Network test: This test is to check the frontend (user mobile) and backend (server and database) are able to communicate as we expected. 
+* Backend test: Without connecting to the frontend, base on the user preference, check server is able to get the correct data from the database that user needed. Also check the ability to add, update the database correctly.
+
 
 #### Q5: What are the user stories that make up the MVP?
 
@@ -120,13 +111,7 @@ Describe your team's working culture.
 ----
 ## Highlights
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
+During the meeting with John (partner), he said we can either continue working on the last team's project code or creating a new project. After reviewing the last team's project, we found that there are many problems on the integration between the frontend and backend. Since we need to add many new features, such as user login and change setting performance,  we decided to rewrite a new backend server. However, we may still use some of their frontend design, since they were making good frontend design before.
 
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
- * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
+In this project, we decided to separate the team members into two parts, part of the members will be working on the frontend, and others will be working on the backend. Based on our knowledge in different programming fields, working in this way will be most efficient for our team.
+
