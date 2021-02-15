@@ -151,15 +151,12 @@ Based on these team strengths and weaknesses, we will be evenly spreading the te
 
 #### Q7: What operational events will you have as a team?
 
-Describe meetings (and other events) you are planning to have. 
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
- * You must have at least 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
-   * What did you discuss during the meetings?
-   * What were the outcomes of each meeting?
-   * You must provide meeting minutes.
-   * You must have a regular meeting schedule established by the second meeting.  
+We are planning to have a weekly group meeting on Zoom at 11 a.m. every Saturday. The purpose of the meeting is to go over what we did last week and whether we completed our goals, solve problems that we met and discuss what we are going to do for next week.  The duration of the meeting will be one hour or more.
+We also plan to have a bi-weekly meeting at 10 a.m. Tuesday to meet with John Leadson, the initiator of the application. During the meeting, we are going to report what we have done in the past week and what we are going to do in the next week. Besides, we will ask Leadson for some advice and confirm his requirements in detail. The duration will be around 30 minutes.
+Moreover, we will have code reviews at least once a week. And the code reviews may be separated into small groups and the time will depend on members.
+Meetings we had so far:
+* We met with Leadson. He told us the style and the function of the application he wanted. Also, he introduced what the previous team did and what we could use to work with. Then, Leadson left and our group kept to discuss the aim of the application and functions we need to implement. Also, we introduced ourselves, including our strengths. Finally, we chose the time for the weekly group meeting and the next meeting. This meeting costs 96 minutes.
+* First of all, we set up our Git repository and made a decision on the communication app, which is Discord. Then, we assigned tasks for Deliverable 1 and each member's role for the project. Finally, we discussed and solved problems we met these days. The duration of this meeting is 103 minutes. 
   
 #### Q8: What artifacts will you use to self-organize?
 * We will mainly rely on discord - we will create a server on discord as it allows voice calling and multiple text channels to keep track of tasks, conversations, document links, as well as documentation of our progress.
@@ -177,11 +174,11 @@ Describe your team's working culture.
 ##### Meetings:
 * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
 
-Conflict resolution:
+* Conflict resolution:
 
-* Non-responsive team members can only be motivated via a higher level of authority in my opinion, so in our case it would require a TA or instructor to engage with them in order to make clear the consequences of not being cooperative in a group project course such as this.
-* Time conflicts have already been resolved by early communications to workout what time works for everyone and we also set a scheduled time for voice communication which also works for everyone.
-* Team members not agreeing on the same idea or task need to be resolved by having more members share their opinions and thoughts, having an evaluation from everyone to decide on what is the most beneficial or convenient for everyone will facilitate in resolving conflicting ideas.
+  * Non-responsive team members can only be motivated via a higher level of authority in my opinion, so in our case it would require a TA or instructor to engage with them in order to make clear the consequences of not being cooperative in a group project course such as this.
+  * Time conflicts have already been resolved by early communications to workout what time works for everyone and we also set a scheduled time for voice communication which also works for everyone.
+  * Team members not agreeing on the same idea or task need to be resolved by having more members share their opinions and thoughts, having an evaluation from everyone to decide on what is the most beneficial or convenient for everyone will facilitate in resolving conflicting ideas.
 
 ----
 ## Highlights
