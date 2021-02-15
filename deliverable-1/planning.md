@@ -38,14 +38,40 @@ For the testing of this app, we will have three parts:
 
 #### Q5: What are the user stories that make up the MVP?
 
-|Title: Recommend Map|Priority: |Estimate: |
-|As a new Taxi driver in a coastal city,
+* As a new Taxi driver in a coastal city,
 I want to get the position of surrounding tourist attractions anytime and anywhere, 
-so that I could pick up more tourists.|
-|Acceptance Criteria: Given our Ontario Park app,
-When user input preference and location, 
-The app will lead the user to the nearest tourists attraction that most likely to satisfy the user's preference.|
+so that I could pick up more tourists.
+  * Acceptance Criteria: Given our Ontario Park app, when user input preference and location, the app will lead the user to the nearest tourists attraction that most likely to satisfy the user's preference. 
 
+A map for saturday: https://www.imdb.com/title/tt1024964/
+
+* As a person with bad sight,
+I want to be able to use the app in order to discover what I am not able to see before.
+  * Given our Ontario Park app, The user interface is friendly to people with bad eyesight. Possible solution could be voice output or special designed button layout.
+
+* As a resident around the park,
+I want to be notified when there are some interesting activities happening near my house.
+Because I want to have a sense of discovery in places I have walked hundreds of times.
+  * Acceptance Criteria:
+Given our Ontario Park app,
+When user feel bored and want to have some fun,
+It can notify the user when they pass some location that might interest the user, or when some changes happen abound the user.
+
+* As a busy tourist travel alone,
+I want to see places I am interested only 
+when I ask this app to give me directions, 
+because I do not have much time to spend in the park.
+  * Acceptance Criteria:
+Being able to display only the locations that may interest this user.
+
+* As a tourist travel with my family,
+I want to have a visit plan that is designed for my family member,
+When me and my family arrived at the vacation destination.
+Because I don’t want to worry about which place is suitable for my child, which tourist attraction may interest my parents, and where to eat and rest. I want this app to deal with all those stuff for me automatically, and give me a perfect vacation plan when I arrive at the vacation destination place.
+  * Acceptance Criteria:
+Given a user profile, time, budget and location,
+When the user ask for a travel plan,
+The app will analyze the user profile, and combine the result with a real time map, to design a real time travel plan(means the plan may change anytime due to traffic or the influence factors).
 
 ----
 ## Intellectual Property Confidentiality Agreement 
