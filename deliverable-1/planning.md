@@ -72,6 +72,7 @@ Edward (Pao Hua Lin):
 ** No experience with CI/CD
 ** Not good at frontend UI design.
 ** Not very well at English communication and presentation
+
 Gerald:
 * Role: Frontend, create voice recognition feature for the app
 * 3 Strengths: 
@@ -82,6 +83,7 @@ Gerald:
 ** Database implementations
 ** CI/CD
 ** Frontend/backend integration
+
 Yingsi Chu:
 * Role: Frontend, map and tracking the location of the user.
 * 3 Strengths: 
@@ -92,6 +94,7 @@ Yingsi Chu:
 ** Not enough group work experience
 ** Tends to do stuff in the last minute
 ** Lack communication skill 
+
 Wenxin:
 * Role: Backend, create a user authentication system
 * 3 Strengths: 
@@ -102,6 +105,7 @@ Wenxin:
 ** Not good at doing English reports.
 ** Always start an assignment one day before the deadline.
 ** Has few project experience. 
+
 Xiaoyu Zhou:
 * Role: Frontend, UI design, making sure the app can work perfectly on both Android and Apple
 * 3 Strengths: 
@@ -112,6 +116,7 @@ Xiaoyu Zhou:
 ** Always start the assignment late.
 ** Poor at communication.
 ** Have no experience on CI&CD.
+
 Jianhua Hu:
 * Role: Backend, make a function to pick the right data from the database based on the user preference
 * 3 Strengths: 
@@ -122,6 +127,7 @@ Jianhua Hu:
 ** No experience on using Android studio
 ** Not familiar with CI/CD
 ** Poor at communication
+
 
 Based on these team strengths and weaknesses, we will be evenly spreading the team into 3 working on frontend and 3 working on the backend. Though we speculate that the project will be mostly frontend oriented so there may be a need to later redistribute one member from backend to frontend to adjust for this need accordingly. Tasks will be further assigned later to have different members work on different fragments.
 
