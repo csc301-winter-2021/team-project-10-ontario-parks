@@ -62,7 +62,7 @@ For the testing of this app, we will have three parts:
 #### Q6: What are the roles & responsibilities on the team?
 
  
-Edward (Pao Hua Lin):
+##### Edward (Pao Hua Lin):
 
 Role: Create backend server to communicate with frontend, communicate with database.
 
