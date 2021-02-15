@@ -76,7 +76,7 @@ Role: Create backend server to communicate with frontend, communicate with datab
 * Not good at frontend UI design.
 * Not very well at English communication and presentation
 
-#####Gerald:
+##### Gerald:
 
 Role: Frontend, create voice recognition feature for the app.
 
@@ -175,6 +175,18 @@ List/describe the artifacts you will produce in order to organize your team.
 #### Q9: What are the rules regarding how your team works?
 
 Describe your team's working culture.
+##### Communications:
+* As in question 8, we have scheduled calls every weekend at Saturday at 11 AM, and bi-weekly calls with our partner on Tuesdays. 
+* These calls serve the purpose of keeping everyone on track and informed of the process.
+
+##### Meetings:
+* How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
+
+Conflict resolution:
+
+* Non-responsive team members can only be motivated via a higher level of authority in my opinion, so in our case it would require a TA or instructor to engage with them in order to make clear the consequences of not being cooperative in a group project course such as this.
+* Time conflicts have already been resolved by early communications to workout what time works for everyone and we also set a scheduled time for voice communication which also works for everyone.
+* Team members not agreeing on the same idea or task need to be resolved by having more members share their opinions and thoughts, having an evaluation from everyone to decide on what is the most beneficial or convenient for everyone will facilitate in resolving conflicting ideas.
 
 **Communications:**
  * What is the expected frequency? What methods/channels are appropriate? 
