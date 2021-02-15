@@ -162,15 +162,10 @@ Describe meetings (and other events) you are planning to have.
    * You must have a regular meeting schedule established by the second meeting.  
   
 #### Q8: What artifacts will you use to self-organize?
-
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * **How do you prioritize tasks?**
-   * How do tasks get assigned to team members?
-   * How do you determine the status of work from inception to completion?
+* We will mainly rely on discord - we will create a server on discord as it allows voice calling and multiple text channels to keep track of tasks, conversations, document links, as well as documentation of our progress.
+* Roles are assigned to team members based on what they’re most experienced and comfortable with. So in our case, we will be assigning 3 members on the front end, and 3 to the back end as a result of everyone’s ability and experience.
+* Discord allows us to assign roles to members, as well as organize our conversation in different channels, this will allow us to keep all our tasks and progress well documented.
+* We will hold weekly meetings on weekends to go over our tasks and progress in order to keep everyone else on the team well informed.
 
 #### Q9: What are the rules regarding how your team works?
 
@@ -187,19 +182,6 @@ Conflict resolution:
 * Non-responsive team members can only be motivated via a higher level of authority in my opinion, so in our case it would require a TA or instructor to engage with them in order to make clear the consequences of not being cooperative in a group project course such as this.
 * Time conflicts have already been resolved by early communications to workout what time works for everyone and we also set a scheduled time for voice communication which also works for everyone.
 * Team members not agreeing on the same idea or task need to be resolved by having more members share their opinions and thoughts, having an evaluation from everyone to decide on what is the most beneficial or convenient for everyone will facilitate in resolving conflicting ideas.
-
-**Communications:**
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
- 
-**Meetings:**
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
- 
-**Conflict Resolution:**
- * List at least three team scenarios/conflicts you discussed in lecture and how you decided you will resolve them. Indecisions? Non-responsive team members? Any other scenarios you can think of?
-
-
-
 
 ----
 ## Highlights
