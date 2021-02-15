@@ -76,60 +76,75 @@ Role: Create backend server to communicate with frontend, communicate with datab
 * Not good at frontend UI design.
 * Not very well at English communication and presentation
 
-Gerald:
-* Role: Frontend, create voice recognition feature for the app
-* 3 Strengths: 
-** High familiarity with Android Studio and Java, developed a few simple apps in this context
-** Python - pygame, matplotlib, unit testing
-** Behavior Driven Development
-* 3 Weaknesses: 
-** Database implementations
-** CI/CD
-** Frontend/backend integration
+#####Gerald:
 
-Yingsi Chu:
-* Role: Frontend, map and tracking the location of the user.
-* 3 Strengths: 
-** familiar with android and java with 207 experience
-** know a bit of CSS, python, javascript
-** Open to any new language and is open to self learn anything
-* 3 Weaknesses: 
-** Not enough group work experience
-** Tends to do stuff in the last minute
-** Lack communication skill 
+Role: Frontend, create voice recognition feature for the app.
 
-Wenxin:
-* Role: Backend, create a user authentication system
-* 3 Strengths: 
-** Familiar with Java, Html Css and Vanilla Js, Python.
-** Know a bit of Android studio, React.
-** Learn new things very quick
-* 3 Weaknesses: 
-** Not good at doing English reports.
-** Always start an assignment one day before the deadline.
-** Has few project experience. 
+3 Strengths: 
+* High familiarity with Android Studio and Java, developed a few simple apps in this context
+* Python - pygame, matplotlib, unit testing
+* Behavior Driven Development
 
-Xiaoyu Zhou:
-* Role: Frontend, UI design, making sure the app can work perfectly on both Android and Apple
-* 3 Strengths: 
-** Familiar with Java and Android studio, with the experience of csc207
-** Familiar with database
-** Have many experiences on different softwares.
-* 3 Weaknesses: 
-** Always start the assignment late.
-** Poor at communication.
-** Have no experience on CI&CD.
+3 Weaknesses: 
+* Database implementations
+* CI/CD
+* Frontend/backend integration
 
-Jianhua Hu:
-* Role: Backend, make a function to pick the right data from the database based on the user preference
-* 3 Strengths: 
-** Familiar with Javascript, nodejs and has experiences on building server using mongodb and mongoose
-** Know a bit of React, html, css, ajax
-** Learn new things quick.
-* 3 Weaknesses: 
-** No experience on using Android studio
-** Not familiar with CI/CD
-** Poor at communication
+##### Yingsi Chu:
+
+Role: Frontend, map and tracking the location of the user.
+
+3 Strengths: 
+* familiar with android and java with 207 experience
+* know a bit of CSS, python, javascript
+* Open to any new language and is open to self learn anything
+
+3 Weaknesses: 
+* Not enough group work experience
+* Tends to do stuff in the last minute
+* Lack communication skill 
+
+##### Wenxin:
+
+Role: Backend, create a user authentication system.
+
+3 Strengths: 
+* Familiar with Java, Html Css and Vanilla Js, Python.
+* Know a bit of Android studio, React.
+* Learn new things very quick.
+
+3 Weaknesses: 
+* Not good at doing English reports.
+* Always start an assignment one day before the deadline.
+* Has few project experience. 
+
+##### Xiaoyu Zhou:
+
+Role: Frontend, UI design, making sure the app can work perfectly on both Android and Apple.
+
+3 Strengths: 
+* Familiar with Java and Android studio, with the experience of csc207.
+* Familiar with database.
+* Have many experiences on different softwares.
+
+3 Weaknesses: 
+* Always start the assignment late.
+* Poor at communication.
+* Have no experience on CI&CD.
+
+##### Jianhua Hu:
+
+Role: Backend, make a function to pick the right data from the database based on the user preference.
+
+3 Strengths: 
+* Familiar with Javascript, nodejs and has experiences on building server using mongodb and mongoose.
+* Know a bit of React, html, css, ajax.
+* Learn new things quick.
+
+3 Weaknesses: 
+* No experience on using Android studio.
+* Not familiar with CI/CD.
+* Poor at communication.
 
 
 Based on these team strengths and weaknesses, we will be evenly spreading the team into 3 working on frontend and 3 working on the backend. Though we speculate that the project will be mostly frontend oriented so there may be a need to later redistribute one member from backend to frontend to adjust for this need accordingly. Tasks will be further assigned later to have different members work on different fragments.
