@@ -63,11 +63,14 @@ For the testing of this app, we will have three parts:
 
  
 Edward (Pao Hua Lin):
+
 Role: Create backend server to communicate with frontend, communicate with database.
+
 3 Strengths: 
 * Strong understanding in java and javascript 
 * Have expereience with frontend app development and backend server.
 * Have expereience working with database.
+
 3 Weaknesses: 
 * No experience with CI/CD
 * Not good at frontend UI design.
