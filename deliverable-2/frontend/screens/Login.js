@@ -44,7 +44,7 @@ const Login = ({navigation}) => {
       </View>
  
       <TouchableOpacity onPress={()=>{pressHandler('SignUp')}}>
-        <Text style={styles.forgot_button}>Forgot Password/Sign Up</Text>
+        <Text style={styles.signup_button}>Sign Up</Text>
       </TouchableOpacity>
  
       <TouchableOpacity style={styles.loginBtn}>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
  
-  forgot_button: {
+  signup_button: {
     height: 30,
     marginBottom: 30,
   },

@@ -4,7 +4,7 @@ import {View, StyleSheet} from 'react-native';
 const Map = props =>{
     return(
         <View>
-            /* TODO */
+            <Text>/* TODO */</Text>
         </ View>
     );
 };
