@@ -21,7 +21,7 @@ const Login = ({navigation}) => {
  
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("./../components/photos/LogoWhite.jpg")} />
+      <Image style={styles.image} source={require("./../components/photos/LogoLogin.jpg")} />
  
       <StatusBar style="auto" />
       <View style={styles.inputView}>
