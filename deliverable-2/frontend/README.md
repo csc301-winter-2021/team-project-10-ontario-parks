@@ -63,7 +63,7 @@ Change directory on terminal to the project's location and run ```npm i``` to in
 
 ```
 cd <project_location>
-cd ./deliverable-2/Frontend/OntarioPark
+cd ./deliverable-2/frontend
 npm i
 ```
 
