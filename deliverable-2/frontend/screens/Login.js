@@ -10,9 +10,14 @@ import {
   TouchableOpacity,
 } from "react-native";
  
-export default function Login() {
+// export default function Login() {
+const Login = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const pressHandler = (page) =>{
+        navigation.navigate(page);
+  }
  
   return (
     <View style={styles.container}>
@@ -38,7 +43,7 @@ export default function Login() {
         />
       </View>
  
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>{pressHandler('SignUp')}}>
         <Text style={styles.forgot_button}>Forgot Password/Sign Up</Text>
       </TouchableOpacity>
  
@@ -95,3 +100,5 @@ const styles = StyleSheet.create({
     backgroundColor: "aliceblue",
   },
 });
+
+export default Login;

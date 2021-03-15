@@ -11,7 +11,7 @@ import {
     StatusBar
 } from 'react-native';
 
-const SignInScreen = ({navigation}) => {
+const SignUp = ({navigation}) => {
 
     const [data, setData] = React.useState({
         username: '',
@@ -171,7 +171,7 @@ const SignInScreen = ({navigation}) => {
     );
 };
 
-export default SignInScreen;
+export default SignUp;
 
 const styles = StyleSheet.create({
     container: {
