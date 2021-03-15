@@ -16,7 +16,7 @@ export default function Login() {
  
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("./../components/photos/Logo.jpg")} />
+      <Image style={styles.image} source={require("./../components/photos/LogoWhite.jpg")} />
  
       <StatusBar style="auto" />
       <View style={styles.inputView}>
@@ -58,13 +58,15 @@ const styles = StyleSheet.create({
   },
  
   image: {
+  	height: 180,
+  	width: "45%",
     marginBottom: 40,
   },
  
   inputView: {
-    backgroundColor: "lightblue",
+    backgroundColor: "aliceblue",
     borderRadius: 30,
-    width: "70%",
+    width: "65%",
     height: 45,
     marginBottom: 20,
  
@@ -90,6 +92,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "skyblue",
+    backgroundColor: "aliceblue",
   },
 });
