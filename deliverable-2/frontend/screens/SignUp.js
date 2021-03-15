@@ -95,75 +95,79 @@ const SignUp = ({navigation}) => {
             <Text style={styles.text_header}>Register Now!</Text>
         </View>
 
-        <ScrollView>
-        <Text style={styles.text_footer}>Username</Text>
-        <View style={styles.action}>
-            <TextInput 
-                placeholder="Your Username"
-                style={styles.textInput}
-                autoCapitalize="none"
-                onChangeText={(val) => textInputChange(val)}
-            />
-        </View>
+        <View style={styles.footer}
+        >
 
-        <Text style={[styles.text_footer, {
-            marginTop: 35
-        }]}>Password</Text>
-        <View style={styles.action}>
-            <TextInput 
-                placeholder="Your Password"
-                secureTextEntry={data.secureTextEntry ? true : false}
-                style={styles.textInput}
-                autoCapitalize="none"
-                onChangeText={(val) => handlePasswordChange(val)}
-            />
-            
-            <Button title="Show password" onPress={updateSecureTextEntry}/>
+		    <ScrollView>
+		    <Text style={styles.text_footer}>Username</Text>
+		    <View style={styles.action}>
+		        <TextInput 
+		            placeholder="Your Username"
+		            style={styles.textInput}
+		            autoCapitalize="none"
+		            onChangeText={(val) => textInputChange(val)}
+		        />
+		    </View>
 
-        </View>
+		    <Text style={[styles.text_footer, {
+		        marginTop: 35
+		    }]}>Password</Text>
+		    <View style={styles.action}>
+		        <TextInput 
+		            placeholder="Your Password"
+		            secureTextEntry={data.secureTextEntry ? true : false}
+		            style={styles.textInput}
+		            autoCapitalize="none"
+		            onChangeText={(val) => handlePasswordChange(val)}
+		        />
+		        
+		        <Button title="Show password" onPress={updateSecureTextEntry}/>
 
-        <Text style={[styles.text_footer, {
-            marginTop: 35
-        }]}>Confirm Password</Text>
-        <View style={styles.action}>
-            <TextInput 
-                placeholder="Confirm Your Password"
-                secureTextEntry={data.confirm_secureTextEntry ? true : false}
-                style={styles.textInput}
-                autoCapitalize="none"
-                onChangeText={(val) => handleConfirmPasswordChange(val)}
-            />
-            
-            <Button title="Show password" onPress={updateConfirmSecureTextEntry}/>
-        </View>
+		    </View>
 
-        <Text style={[styles.text_footer, {
-            marginTop: 35
-        }]}>Email</Text>
-        <View style={styles.action}>
-            <TextInput 
-                placeholder="Your Email"
-                style={styles.textInput}
-                autoCapitalize="none"
-                onChangeText={(val) => textEmailChange(val)}
-            />
-        </View>
+		    <Text style={[styles.text_footer, {
+		        marginTop: 35
+		    }]}>Confirm Password</Text>
+		    <View style={styles.action}>
+		        <TextInput 
+		            placeholder="Confirm Your Password"
+		            secureTextEntry={data.confirm_secureTextEntry ? true : false}
+		            style={styles.textInput}
+		            autoCapitalize="none"
+		            onChangeText={(val) => handleConfirmPasswordChange(val)}
+		        />
+		        
+		        <Button title="Show password" onPress={updateConfirmSecureTextEntry}/>
+		    </View>
+
+		    <Text style={[styles.text_footer, {
+		        marginTop: 35
+		    }]}>Email</Text>
+		    <View style={styles.action}>
+		        <TextInput 
+		            placeholder="Your Email"
+		            style={styles.textInput}
+		            autoCapitalize="none"
+		            onChangeText={(val) => textEmailChange(val)}
+		        />
+		    </View>
 
 
 
-        <View style={styles.button}>
-            <TouchableOpacity
-                style={styles.signIn}
-                onPress={() => navigation.goBack()}
-            >
+		    <View style={styles.button}>
+		        <TouchableOpacity
+		            style={styles.signIn}
+		            onPress={() => navigation.goBack()}
+		        >
 
-            <Text style={[styles.textSign, {
-                color:'#fff'
-            }]}>Sign Up</Text>
+		        <Text style={[styles.textSign, {
+		            color:'#000'
+		        }]}>Sign Up</Text>
 
-            </TouchableOpacity>
-        </View>
-        </ScrollView>
+		        </TouchableOpacity>
+		    </View>
+		    </ScrollView>
+		</View>
       </View>
 
 
