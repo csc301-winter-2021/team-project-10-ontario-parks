@@ -15,7 +15,7 @@ const MainPage = (props) => {
             <Header title={tytle}></Header>
             <Button title="Setting Preference" onPress={()=>{pressHandler('SettingPreference')}}/>
             <Button title="Map" onPress={()=>{pressHandler('Map')}}/>
-            <Button title="Start"/>
+            <Button title="Start" onPress={()=>{pressHandler('Login')}}/>
         </View>
     );
 };
