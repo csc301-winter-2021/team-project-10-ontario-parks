@@ -10,21 +10,6 @@ const SettingPreference = ({ navigation }) =>{
 
     return (
         <View style={styles.container}>
-            {/* setup header */}
-            <View style={styles.header}>
-                {/* Here is  the return button */}
-                <View style={styles.backView}>
-                    <TouchableOpacity activeOpacity={0.3} onPress={() => {navigation.navigate('MainPage')}}>
-                    <View style={styles.button}>
-                        <Text style={styles.buttonText}>return</Text>
-                    </View>
-                </TouchableOpacity>
-                </View>
-                
-                {/* Here is the title */}
-                <Text style={styles.TitleView}>Setting Preference</Text>
-            </View>
-
             {/* for checkboxes */}
             <View style={styles.checkboxContainer}>
                 <CheckBox
