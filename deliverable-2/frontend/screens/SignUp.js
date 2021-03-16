@@ -8,21 +8,68 @@ import {
     Platform,
     StyleSheet,
     ScrollView,
-    StatusBar
+    StatusBar,
+    Alert
 } from 'react-native';
 
 const SignUp = ({navigation}) => {
+
+    const userInfo = require('../userInfo.json');
 
     const [data, setData] = React.useState({
         username: '',
         password: '',
         confirm_password: '',
-        email: ',',
+        email: '',
         check_textEmailChange: false,
         check_textInputChange: false,
         secureTextEntry: true,
         confirm_secureTextEntry: true,
     });
+
+
+    doSignUp=()=>{
+        if(data.username === ''){
+            console.log("Username cannot be empty")
+            Alert.alert("Username cannot be empty");
+        }
+        else if (data.password === ''){
+            console.log("Password cannot be empty")
+            Alert.alert("Password cannot be empty");
+        }
+        else if(data.email === ''){
+            console.log("Email cannot be empty")
+            Alert.alert("Email cannot be empty");
+        }
+        else if (data.password !== data.confirm_password){
+            console.log("Password and Confirm Password not match")
+            Alert.alert("Password and Confirm Password not match");
+        }
+        else{
+            let found = false
+            userInfo.forEach((user)=>{
+                if(user["email"] === data.email){
+                    found = true
+                    console.log("This email is already registered")
+                    Alert.alert("This email is already registered")
+                }
+            });
+            if (!found){
+                let newUser = {
+                    "username": data.username,
+                    "email": data.email,
+                    "password": data.password
+                }
+                //send newUser information to server to create an account
+                // console.log("Account created!!")
+                userInfo.push(newUser);
+                back("MainPage");
+            }
+
+
+        }
+
+    };
 
     const textInputChange = (val) => {
         if( val.length !== 0 ) {
@@ -85,7 +132,7 @@ const SignUp = ({navigation}) => {
     }
 
     const back = (page) =>{
-        props.navigation.navigate(page);
+        navigation.navigate(page);
     }
 
     return (
@@ -157,7 +204,7 @@ const SignUp = ({navigation}) => {
 		    <View style={styles.button}>
 		        <TouchableOpacity
 		            style={styles.signIn}
-		            onPress={() => navigation.goBack()}
+		            onPress={() => doSignUp()}
 		        >
 
 		        <Text style={[styles.textSign, {
