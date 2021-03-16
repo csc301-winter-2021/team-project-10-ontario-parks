@@ -103,8 +103,4 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
 
  ## Licenses 
 
- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
-
- * What type of license will you apply to your codebase?
- * What affect does it have on the development and use of your codebase?
- * Why did you or your partner make this choice?
+ * We will resort to not having an open source license due to the fact that we are working with Ontario Parks, which operates under the government's supervision. While this application tries to meet the visions of the Arrowhead Assistant Superintendent, John Leadston, we are not sure which directions he intends to go with the application, so we will keep it private for now.
