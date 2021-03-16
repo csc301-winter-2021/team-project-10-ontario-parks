@@ -17,9 +17,13 @@
       "**/*"
     ],
     "ios": {
+      "package": "com.ontarioparks.ios",
+      "versinCode": 1,
       "supportsTablet": true
     },
     "android": {
+      "package": "com.ontarioparks.android",
+      "versinCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
