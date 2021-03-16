@@ -32,10 +32,18 @@ the user is traveling at.
     <img src="demo/map.jpg" height = 600>
 
 ## Instructions
- * Clear instructions for how to use the application from the end-user's perspective
- * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
- * Provide clear steps for using each feature described above
- * This section is critical to testing your application and must be done carefully and thoughtfully
+ * An apk file of our application has been provided in our repository under the deliverable-2/frontend/apk folder. Download the file and load onto a simulator or an android device.
+ * Main page:
+   * Everything will be accessible from here. This is the home page that is opened once the application launches as well.
+ * Log in page:
+   * Click on log in if you have an account or intend on loggin in with an account you already have.
+ * Registration page:
+   * Within the log in page, you can register for a new account by clicking on sign up.
+ * Map:
+   * By clicking on the map button, you can explore your nearby areas and points of interests.
+ * Preferences:
+   * Change your points of interest in the preferences page, which will deteremine what will show up for you as you explore Ontario.
+ * At any point on any page except the main page, tap on the left arrow to the top left corner in order to return to the home page.
 
 ## Development requirements
 ### Front End Development Installing
