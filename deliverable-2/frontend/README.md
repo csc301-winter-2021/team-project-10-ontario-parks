@@ -89,7 +89,7 @@ npm i
 
 - Install Node.js on your local machine.
 - Run `npm install` in the project folder.
-- Run `npm start` in terminal. If this does not bring up a new page in your browser, or you do not see a QR code in your terminal, instead run `expo start`.
+- Run `expo start` in terminal. This will bring up a new page in your browser, and a QR code in your terminal.
 
  ## Deployment and Github Workflow
 
