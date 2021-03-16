@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+
 import {
   StyleSheet,
   Text,
@@ -8,15 +9,43 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  Alert
 } from "react-native";
  
 // export default function Login() {
 const Login = ({navigation}) => {
+
+  const[currUser, setCurrUser] = useState(null);
+  const[found, setFound] = useState(false);
+
+  // for temp only
+  const data = require('../userInfo.json');
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const pressHandler = (page) =>{
         navigation.navigate(page);
+  }
+
+  doLogin = ()=>{
+    setFound(false);
+    data.forEach((user) =>{
+      console.log(user)
+      console.log(email, password)
+      if(user["email"] === email && user["password"] === password){
+        setFound(true);
+        setCurrUser(user)
+        console.log(user["username"], "Login!!");
+      }
+    });
+    if (!found){
+      console.log("Email or Password incorrect!!");
+      Alert.alert('Email or Password incorrect!!');
+    }
+    else{
+      navigation.navigate("MainPage");
+    }
   }
  
   return (
@@ -27,7 +56,7 @@ const Login = ({navigation}) => {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Name:"
+          placeholder="Email:"
           placeholderTextColor="grey"
           onChangeText={(email) => setEmail(email)}
         />
@@ -47,7 +76,7 @@ const Login = ({navigation}) => {
         <Text style={styles.signup_button}>Sign Up</Text>
       </TouchableOpacity>
  
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity style={styles.loginBtn} onPress={()=>{doLogin()}}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
