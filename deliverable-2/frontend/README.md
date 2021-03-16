@@ -32,7 +32,7 @@ the user is traveling at.
     <img src="demo/map.jpg" height = 600>
 
 ## Instructions
- * An apk file of our application has been provided in our repository under the deliverable-2/frontend/apk folder. Download the file and load onto a simulator or an android device.
+ * An apk file of our application has been provided [in this link](https://drive.google.com/file/d/1hzbUuvz2ZC3hMR8oDRguxdCCeMymeeT6/view?usp=sharing). Download the file and load onto a simulator or an android device.
  * Main page:
    * Everything will be accessible from here. This is the home page that is opened once the application launches as well.
  * Log in page:
