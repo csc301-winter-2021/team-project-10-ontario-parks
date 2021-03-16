@@ -67,7 +67,7 @@ cd ./deliverable-2/frontend
 npm i
 ```
 
-### In order to see chances to the code on your mobile device, you also need to install Expo.
+### In order to see changes to the code on your mobile device, you also need to install Expo.
 **ios device:**
 
 - Download _Expo Go_ from the appstore.
@@ -79,8 +79,8 @@ npm i
 ### Backend Development Installing:
 
 - Install Node.js on your local machine.
-- Change directory to the backend project directory and run `npm install` in terminal
-- Run `npm start` in terminal
+- Run `npm install` in the project folder.
+- Run `npm start` in terminal. If this does not bring up a new page in your browser, or you do not see a QR code in your terminal, instead run `expo start`.
 
  ## Deployment and Github Workflow
 
