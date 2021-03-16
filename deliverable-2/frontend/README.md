@@ -12,15 +12,24 @@ we are adding new features like registration, log-in, user profiles, settings & 
 the user is traveling at.
 
 ## Key Features
- * Log-in and registration screens.
-   * Upon opening the application, users have the option to login to an account they already have, register for a new account, or use the application as a guest user, e.g. no account needed.
-   * Benefits of having an account includes using the application on multiple devices and keeping your settings across devices.
- * Settings and prefereces screen.
-   * Here, users have the ability to change the following settings:
-     * Their points of interest - cultural, agricultural, natural, historical, indigenous, etc.
-     * Play full audio or audio of just short hooks.
-   * Users can logout if they are currently logged in, bringing them back to the login screen.
-
+- Menu Screen.
+  - Upon opening the application, users are presented with the main menu screen, where they have the option to login, view the map, or change their preferences. Clicking each button leads to a new screen. <br />
+  - <img src="demo/main.jpg" height= 600>
+- Log-in and registration screens. 
+  - The login screen allows users to login to an account they already have or register for a new account. Though users are not required to make an account as they can directly use the app via the "Map" button. 
+  - Benefits of having an account includes using the application on multiple devices and keeping your settings across devices.<br />
+    <img src="demo/login.jpg" height= 600>
+- Signup screen. 
+  - Users can signup for a new account here, and have their settings stored for device switching. <br />
+    <img src="demo/signup.jpg" height = 600>
+- Settings and prefereces screen. 
+  - Here, users have the ability to change the following settings:
+  - Their points of interest - cultural, agricultural, natural, historical, indigenous, etc.
+  - Play full audio or audio of just short hooks. <br />
+    <img src="demo/settings.jpg" height = 600>
+- Map screen.
+  - Where the user is able to see points of interest and tap on them to read more about them. (This feature is currently not complete as there are bridging issues between our code and the previous group's code, to which we are extending. A temporary map screen is used in its stead.)<br />
+    <img src="demo/map.jpg" height = 600>
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
@@ -67,7 +76,7 @@ cd ./deliverable-2/frontend
 npm i
 ```
 
-### In order to see chances to the code on your mobile device, you also need to install Expo.
+### In order to see changes to the code on your mobile device, you also need to install Expo.
 **ios device:**
 
 - Download _Expo Go_ from the appstore.
@@ -79,8 +88,8 @@ npm i
 ### Backend Development Installing:
 
 - Install Node.js on your local machine.
-- Change directory to the backend project directory and run `npm install` in terminal
-- Run `npm start` in terminal
+- Run `npm install` in the project folder.
+- Run `npm start` in terminal. If this does not bring up a new page in your browser, or you do not see a QR code in your terminal, instead run `expo start`.
 
  ## Deployment and Github Workflow
 
@@ -94,8 +103,4 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
 
  ## Licenses 
 
- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
-
- * What type of license will you apply to your codebase?
- * What affect does it have on the development and use of your codebase?
- * Why did you or your partner make this choice?
+ * We will resort to not having an open source license due to the fact that we are working with Ontario Parks, which operates under the government's supervision. While this application tries to meet the visions of the Arrowhead Assistant Superintendent, John Leadston, we are not sure which directions he intends to go with the application, so we will keep it private for now.
