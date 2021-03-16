@@ -90,16 +90,17 @@ npm i
 - Install Node.js on your local machine.
 - Run `npm install` in the project folder.
 - Run `npm start` in terminal. If this does not bring up a new page in your browser, or you do not see a QR code in your terminal, instead run `expo start`.
+- In the new page brought up by the previous step, you should have the option of scanning the QR code in order to see live changes to your code via Expo, or you can see the application in action in your browser by clicking on "Run in web browser".
 
  ## Deployment and Github Workflow
 
 Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
+ * Our initial development phase up until our first working version was all completed on our "main" branch on the team-project-10-ontario-parks repository. There was no point in creating a separate development branch as we had no deployable product and no user sharing the branches with us. Thus in this closed environment we shared our code and development process on one single branch.
+ * When our initial deployable version rolled around, we then diverged into two branches by creating a new branch named "dev". The plan is then to have the dev branch act as our developing environment while the main branch served as a deployment branch. We could therefore deploy a minimum viable product while we continuously pulled from this branch for development, and pushed back when new features have been completed. 
+ * In terms of collaboration, it mostly took place on the main branch until dev was created. Members would pull code from the branch to work on their individual pages and screens. Prior to any pulls or pushes, however, members needed to communicate their intentions first in our group chat, which we used discord for. This was so we could avoid conflicts when cooperating. Additionally, it facilitated clarification between members in that everyone was aware what features were currently being worked on by whom. Consequently, should we encounter merge conflicts, it was clear which portions of code served what purpose, which helped determine how a merge conflict can be resolved.
 
- * Be concise, yet precise. For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
  * Describe your overall deployment process from writing code to viewing a live applicatioon
  * What deployment tool(s) are you using and how
- * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it!
 
  ## Licenses 
 
