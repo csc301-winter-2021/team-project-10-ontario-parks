@@ -12,15 +12,24 @@ we are adding new features like registration, log-in, user profiles, settings & 
 the user is traveling at.
 
 ## Key Features
- * Log-in and registration screens.
-   * Upon opening the application, users have the option to login to an account they already have, register for a new account, or use the application as a guest user, e.g. no account needed.
-   * Benefits of having an account includes using the application on multiple devices and keeping your settings across devices.
- * Settings and prefereces screen.
-   * Here, users have the ability to change the following settings:
-     * Their points of interest - cultural, agricultural, natural, historical, indigenous, etc.
-     * Play full audio or audio of just short hooks.
-   * Users can logout if they are currently logged in, bringing them back to the login screen.
-
+- Menu Screen.
+  - Upon opening the application, users are presented with the main menu screen, where they have the option to login, view the map, or change their preferences. Clicking each button leads to a new screen. <br />
+  - <img src="demo/main.jpg" height= 600>
+- Log-in and registration screens. 
+  - The login screen allows users to login to an account they already have or register for a new account. Though users are not required to make an account as they can directly use the app via the "Map" button. 
+  - Benefits of having an account includes using the application on multiple devices and keeping your settings across devices.<br />
+    <img src="demo/login.jpg" height= 600>
+- Signup screen. 
+  - Users can signup for a new account here, and have their settings stored for device switching. <br />
+    <img src="demo/signup.jpg" height = 600>
+- Settings and prefereces screen. 
+  - Here, users have the ability to change the following settings:
+  - Their points of interest - cultural, agricultural, natural, historical, indigenous, etc.
+  - Play full audio or audio of just short hooks. <br />
+    <img src="demo/settings.jpg" height = 600>
+- Map screen.
+  - Where the user is able to see points of interest and tap on them to read more about them. (This feature is currently not complete as there are bridging issues between our code and the previous group's code, to which we are extending. A temporary map screen is used in its stead.)<br />
+    <img src="demo/map.jpg" height = 600>
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
