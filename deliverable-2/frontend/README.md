@@ -99,9 +99,6 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  * When our initial deployable version rolled around, we then diverged into two branches by creating a new branch named "dev". The plan is then to have the dev branch act as our developing environment while the main branch served as a deployment branch. We could therefore deploy a minimum viable product while we continuously pulled from this branch for development, and pushed back when new features have been completed. 
  * In terms of collaboration, it mostly took place on the main branch until dev was created. Members would pull code from the branch to work on their individual pages and screens. Prior to any pulls or pushes, however, members needed to communicate their intentions first in our group chat, which we used discord for. This was so we could avoid conflicts when cooperating. Additionally, it facilitated clarification between members in that everyone was aware what features were currently being worked on by whom. Consequently, should we encounter merge conflicts, it was clear which portions of code served what purpose, which helped determine how a merge conflict can be resolved.
 
- * Describe your overall deployment process from writing code to viewing a live applicatioon
- * What deployment tool(s) are you using and how
-
  ## Licenses 
 
  * We will resort to not having an open source license due to the fact that we are working with Ontario Parks, which operates under the government's supervision. While this application tries to meet the visions of the Arrowhead Assistant Superintendent, John Leadston, we are not sure which directions he intends to go with the application, so we will keep it private for now.
