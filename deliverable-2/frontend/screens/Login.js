@@ -31,8 +31,6 @@ const Login = ({navigation}) => {
   doLogin = ()=>{
     setFound(false);
     data.forEach((user) =>{
-      console.log(user)
-      console.log(email, password)
       if(user["email"] === email && user["password"] === password){
         setFound(true);
         setCurrUser(user)
