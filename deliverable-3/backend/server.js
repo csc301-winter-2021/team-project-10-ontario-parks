@@ -4,20 +4,9 @@ app.use(express.json())
 PORT = 3000
 
 
-const user_data = [
-    {
-        "name": "Edward",
-        "email": "edward@gmail.com",
-        "password": "123456789",
-        "preference": ["natural", "historical"]
-    },
-    {
-        "name": "GW",
-        "email": "gw@gmail.com",
-        "password": "123456789",
-        "preference": ["cultural"]
-    }
-]
+const fs = require('fs')
+let userjson = fs.readFileSync("./data/user_data.json", "utf-8")
+let user_data = JSON.parse(userjson)
 
 app.get('/login', (req, res) => {
     const useremail = req.body.email
@@ -53,6 +42,8 @@ app.post('/signup', (req, res)=>{
             "preference": req.body.preference
         }
         user_data.push(user)
+        userjson = JSON.stringify(user_data)
+        fs.writeFileSync("./data/user_data.json",userjson, "utf-8")
         res.status(201).send("success")
     }
 
