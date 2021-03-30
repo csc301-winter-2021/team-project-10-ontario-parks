@@ -18,3 +18,13 @@ Content-Type: application/json
     "password": "123",
     "preference": []
 }
+
+###
+
+POST http://localhost:3000/preference
+Content-Type: application/json
+
+{
+    "email": "super@gmail.com",
+    "preference": ["natural", "historical"]
+}
