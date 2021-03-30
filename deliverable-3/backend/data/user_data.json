@@ -1,14 +1,1 @@
-[
-    {
-        "name": "Edward",
-        "email": "edward@gmail.com",
-        "password": "123456789",
-        "preference": ["natural", "historical"]
-    },
-    {
-        "name": "GW",
-        "email": "gw@gmail.com",
-        "password": "123456789",
-        "preference": ["cultural"]
-    }
-]
+[{"name":"Superman","email":"super@gmail.com","password":"123","preference":[]}]
