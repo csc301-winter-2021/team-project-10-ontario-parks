@@ -1,8 +1,10 @@
+
 const express = require('express')
 const app = express()
 app.use(express.json())
 PORT = 3000
-const default_radius = 0.05
+
+const default_radius = 1
 
 //read user data from ./data/user_data.json
 const fs = require('fs')
@@ -94,9 +96,16 @@ app.get('/attractions', (req, res)=>{
             }
         })
     }
-    res.json(attractions)
+    let result = []
+    attractions.forEach((attraction)=>{
+        let num1 = attraction.lat-userlat
+        let num2 = attraction.lng-userlng
+        let distance = num1*num1+num2*num2
+        if(distance<=radius*radius){
+            result.push(attraction)
+        }
+    })
+    res.json(result)
 })
-
-
 
 app.listen(PORT)
