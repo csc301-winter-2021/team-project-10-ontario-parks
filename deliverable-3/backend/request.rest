@@ -13,8 +13,8 @@ POST http://localhost:3000/signup
 Content-Type: application/json
 
 {
-    "name": "Superman",
-    "email": "super@gmail.com",
+    "name": "Superman2",
+    "email": "super2@gmail.com",
     "password": "123",
     "preference": []
 }
@@ -27,4 +27,15 @@ Content-Type: application/json
 {
     "email": "super@gmail.com",
     "preference": ["natural", "historical"]
+}
+
+###
+
+GET http://localhost:3000/attractions
+Content-Type: application/json
+
+{
+    "lat": 43.767676,
+    "lng": -79.337910,
+    "preference":["natural"]
 }
