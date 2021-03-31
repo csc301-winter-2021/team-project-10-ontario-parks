@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import {View, StyleSheet, Text, ScrollView, Button, CheckBox, TouchableOpacity} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {View, StyleSheet, Text} from 'react-native';
+import { Checkbox } from 'react-native-paper';
 
 const SettingPreference = ({ navigation }) =>{
     const [isNatural, setNatural] = useState(false);
@@ -7,96 +8,69 @@ const SettingPreference = ({ navigation }) =>{
     const [isGeneral, setGeneral] = useState(false);
     const [isHistorical, setHistorical] = useState(false);
     const [isPopular, setPopular] = useState(false);
+    const lstPrefer = [];
+    
 
     return (
         <View style={styles.container}>
             {/* for checkboxes */}
             <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isNatural}
-                    onValueChange={setNatural}
-                    style={styles.checkbox}
+                <Checkbox
+                    status={isNatural ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setNatural(!isNatural);
+                    }}
                 />
-                <Text style={styles.label}>Natural</Text>
+                <Text style={styles.checkText}>Natural</Text>
             </View>
             
             <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isCultural}
-                    onValueChange={setCultural}
-                    style={styles.checkbox}
+                <Checkbox
+                    status={isCultural ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setCultural(!isCultural);
+                    }}
                 />
-                <Text style={styles.label}>Cultural</Text>
+                <Text style={styles.checkText}>Cultural</Text>
             </View>
 
             <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isGeneral}
-                    onValueChange={setGeneral}
-                    style={styles.checkbox}
+                <Checkbox
+                    status={isGeneral ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setGeneral(!isGeneral);
+                    }}
                 />
-                <Text style={styles.label}>General</Text>
+                <Text style={styles.checkText}>General</Text>
             </View>
 
             <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isHistorical}
-                    onValueChange={setHistorical}
-                    style={styles.checkbox}
+                <Checkbox
+                    status={isHistorical ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setHistorical(!isHistorical);
+                    }}
                 />
-                <Text style={styles.label}>Historical</Text>
+                <Text style={styles.checkText}>Historical</Text>
             </View>
 
             <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isPopular}
-                    onValueChange={setPopular}
-                    style={styles.checkbox}
+                <Checkbox
+                    status={isPopular ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setPopular(!isPopular);
+                    }}
                 />
-                <Text style={styles.label}>Popular</Text>
+                <Text style={styles.checkText}>Popular</Text>
             </View>
             {/* Here is used to record the selected text */}
-            <Text>Selected Preference: {isNatural ? "Natural " : ""} {isCultural ? "Cultural " : ""} {isGeneral ? "General " : ""} {isHistorical ? "Historical " : ""} {isPopular ? "Popular " : ""}</Text> 
+            <Text style={styles.label}>Selected Preference: {isNatural ? "Natural " : ""} {isCultural ? "Cultural " : ""} {isGeneral ? "General " : ""} {isHistorical ? "Historical " : ""} {isPopular ? "Popular " : ""}</Text> 
         </View>
   );
             
 };
 
 const styles = StyleSheet.create({
-    backView:{
-        flexGrow: 1,
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        paddingLeft: 10,
-    },
-
-    button: {
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-    },
-
-    buttonText: {
-        color: "#25A5D3",
-        fontFamily: 'open-sans-bold',
-        fontSize: 16
-    },
-
-    TitleView: {
-        paddingLeft: 10,
-        flexGrow: 2,
-        flexDirection: "row",
-        justifyContent: "flex-start"
-    },
-
-    header: {
-        width: "100%",
-        flexDirection: "row",
-        height: 90,
-        paddingTop: 36,
-        alignItems: "center",
-        backgroundColor: "#D7E8F3"
-    },
-
     container: {
         flex: 1,
         alignItems: "center",
@@ -105,12 +79,19 @@ const styles = StyleSheet.create({
     },
     checkboxContainer: {
         flexDirection: "row",
-        marginBottom: 20,
+        marginBottom: 50,
+        width: "40%",
+        borderRadius: 25,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "aliceblue",
     },
-    checkbox: {
-        alignSelf: "center",
+    checkText: {
+        fontSize: 18,
+        margin: 8,
     },
     label: {
+        fontSize: 15,
         margin: 8,
     },
 });

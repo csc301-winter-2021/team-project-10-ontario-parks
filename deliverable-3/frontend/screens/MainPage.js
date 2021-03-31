@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Button, StyleSheet} from 'react-native';
+import {View, Button, StyleSheet, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 import Header from '../components/Header';
 
 const MainPage = (props) => {
@@ -11,16 +11,53 @@ const MainPage = (props) => {
     }
 
     return (
-        <View>
-            <Header title={tytle}></Header>
-            <Button title="Setting Preference" onPress={() => { pressHandler('SettingPreference') }} />
-            <Button title="Map" onPress={() => { pressHandler('Map') }} />
-            <Button title="Login" onPress={() => { pressHandler('Login') }} />
-            <Button title="Start" onPress={() => { pressHandler('Map') }} />
+        <View style={styles.container}>
+            <Image style={styles.image} source={require("./../components/photos/LogoLogin.jpg")} />
+            
+            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('SettingPreference') }}>
+                <Text style={styles.loginText}>Setting Preference</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
+                <Text style={styles.loginText}>Map</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Login') }}>
+                <Text style={styles.loginText}>Login</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
+                <Text style={styles.loginText}>Start</Text>
+            </TouchableOpacity>
+            
         </View>
     );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+    image: {
+        height: 105,
+        width: "90%",
+        marginBottom: 40,
+    },
+
+    button: {
+        width: "40%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "aliceblue",
+      },
+
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: '#fff',
+    }
+});
 
 export default MainPage;
