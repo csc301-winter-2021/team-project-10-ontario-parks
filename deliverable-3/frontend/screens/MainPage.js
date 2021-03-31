@@ -27,7 +27,7 @@ const MainPage = (props) => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
-                <Text style={styles.loginText}>Map</Text>
+                <Text style={styles.loginText}>Start</Text>
             </TouchableOpacity>
             
         </View>
