@@ -73,7 +73,7 @@ app.post('/preference', (req, res)=>{
     fs.writeFileSync("./data/user_data.json",userjson, "utf-8")
 })
 //handle map request
-app.get('/attractions', (req, res)=>{
+app.post('/attractions', (req, res)=>{
     const userlat = req.body.lat
     const userlng = req.body.lng
     let preference = []
