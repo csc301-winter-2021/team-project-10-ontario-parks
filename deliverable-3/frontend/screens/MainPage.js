@@ -6,17 +6,17 @@ const MainPage = (props) => {
     const tytle = "Explore Ontario";
 
     //function allow user to switch the pages when call
-    const pressHandler = (page) =>{
+    const pressHandler = (page) => {
         props.navigation.navigate(page);
     }
 
-    return(
+    return (
         <View>
             <Header title={tytle}></Header>
-            <Button title="Setting Preference" onPress={()=>{pressHandler('SettingPreference')}}/>
-            <Button title="Map" onPress={()=>{pressHandler('Map')}}/>
-            <Button title="Login" onPress={()=>{pressHandler('Login')}}/>
-            <Button title="Start" />
+            <Button title="Setting Preference" onPress={() => { pressHandler('SettingPreference') }} />
+            <Button title="Map" onPress={() => { pressHandler('Map') }} />
+            <Button title="Login" onPress={() => { pressHandler('Login') }} />
+            <Button title="Start" onPress={() => { pressHandler('Map') }} />
         </View>
     );
 };
