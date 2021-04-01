@@ -8,6 +8,7 @@ import SignUp from '../screens/SignUp';
 import Map from '../screens/Map';
 import SettingPreference from '../screens/SettingPreference';
 import AttractionDetail from '../screens/AttractionDetail';
+import UserMainPage from '../screens/UserMainPage';
 
 const screens = {
     MainPage:{
@@ -27,6 +28,9 @@ const screens = {
     },
     AttractionDetail:{
         screen: AttractionDetail
+    },
+    UserMainPage:{
+        screen: UserMainPage
     }
 }
 
