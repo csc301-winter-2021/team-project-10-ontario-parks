@@ -10,6 +10,7 @@ const Map = props => {
   const [location, setLocation] = useState({ lat: 43.663, lng: -79.395 });
   const [error, setError] = useState(null);
   const [ready, setReady] = useState(false);
+  const [buildings, setBuildings] = useState([]);
   useEffect(() => {
     (async () => {
       // request permissions
@@ -42,7 +43,8 @@ const Map = props => {
         },
         body: JSON.stringify(location)
       });
-      let buildings = await res.json()
+      let buildings_ = await res.json()
+      setBuildings(buildings_)
       console.log(buildings)
 
       setReady(true);
@@ -64,6 +66,14 @@ const Map = props => {
             longitudeDelta: 0.0121,
           }}
         >
+          {buildings.map((obj, index)=> <Marker
+            key={index}
+            coordinate={{
+              latitude: parseFloat(obj.lat),
+              longitude: parseFloat(obj.lng)
+            }}
+            />
+          )}
         </MapView>
 
         )}
