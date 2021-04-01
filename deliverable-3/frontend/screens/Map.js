@@ -3,12 +3,13 @@ import { View, StyleSheet, Text } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import * as Location from 'expo-location';
 
+const URL = "http://192.168.8.153:3000"
+
 const Map = props => {
 
   const [location, setLocation] = useState({ lat: 43.663, lng: -79.395 });
   const [error, setError] = useState(null);
   const [ready, setReady] = useState(false);
-
   useEffect(() => {
     (async () => {
       // request permissions
@@ -22,17 +23,18 @@ const Map = props => {
       // get location
       let { coords } = await Location.getCurrentPositionAsync({});
       let location_ = {
-        lng: coords.latitude,
-        lat: coords.longitude
+        lat: coords.latitude,
+        lng: coords.longitude
       }
-      // setLocation(location_);
-      console.log(location_);
+      setLocation(location_);
+      console.log(location);
 
       /**
        * get array of object with building info
        * object has attributes lat, lng, name, info
        */
-      let res = await fetch('http://10.0.236.10:3000/attractions', {
+      let url_attractions = URL.concat("/attractions")
+      let res = await fetch(url_attractions, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -48,36 +50,29 @@ const Map = props => {
   }, []);
 
 
-  return (
+  return(
 
     <View style={styles.container}>
-      {ready && (
+        {ready && (
         <MapView
-          provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          region={{
-            latitude: location.lng,
-            longitude: location.lat,
+        provider={PROVIDER_GOOGLE}
+        style={styles.map}
+        region={{
+            latitude: location.lat,
+            longitude: location.lng,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
         >
         </MapView>
-      )}
 
-      {
-        error != null && (
-          <Text>
-            {error}
-          </Text>
-        )
-      }
-    </View>
-  );
+        )}
+  </View>
+);
 };
 
 const styles = StyleSheet.create({
-  container: {
+container: {
     ...StyleSheet.absoluteFillObject,
     height: '100%',
     width: '100%',
@@ -88,3 +83,4 @@ const styles = StyleSheet.create({
 });
 
 export default Map;
+
