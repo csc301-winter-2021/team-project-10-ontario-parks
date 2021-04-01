@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import * as Location from 'expo-location';
 
 const URL = "http://192.168.8.153:3000"
@@ -72,8 +72,20 @@ const Map = props => {
               latitude: parseFloat(obj.lat),
               longitude: parseFloat(obj.lng)
             }}
-            />
+            >
+              <Callout>
+                <Text>{obj.name}</Text>
+              </Callout>
+            </Marker>
           )}
+          <Marker   
+            title={"current position"}         
+            coordinate={{
+              latitude: parseFloat(location.lat),
+              longitude: parseFloat(location.lng)
+            }}
+            pinColor={'#00ffff'}
+            />
         </MapView>
 
         )}
