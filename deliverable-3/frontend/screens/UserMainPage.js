@@ -5,25 +5,22 @@ import Header from '../components/Header';
 const log = console.log
 
 // const MainPage = (props) => {
-const MainPage = ({navigation, user_cookie}) => {
+const MainPage = ({navigation}) => {
 
     const tytle = "Explore Ontario";
 
-    if (!user_cookie) {
-        // log("!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        var user_cookie = {
-            name: "test",
-            email: "q",
-            password: "q",
-            login: true
-        }
+    let user_info = {
+        email: navigation.state.params.email,
+        password: navigation.state.params.password
     }
+
+    log(user_info)
+
 
 
     //function allow user to switch the pages when call
-    const pressHandler = (page, user_cookie) => {
-        log(user_cookie)
-        navigation.navigate(page, user_cookie);
+    const pressHandler = (page, user_info) => {
+        navigation.navigate(page, user_info);
     }
 
     return (
@@ -38,7 +35,7 @@ const MainPage = ({navigation, user_cookie}) => {
                 <Text style={styles.loginText}>Map</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Login', user_cookie) }}>
+            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Login') }}>
                 <Text style={styles.loginText}>Logout</Text>
             </TouchableOpacity>
 
