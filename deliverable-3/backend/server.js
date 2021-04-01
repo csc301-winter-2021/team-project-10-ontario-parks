@@ -23,6 +23,9 @@ app.post('/login', (req, res) => {
             if(user.password === userpassword){
                 found = true
                 res.status(200).send(user.name+" loged in!!")
+                console.log("Logged in!!")
+                console.log(user.name)
+
             }
         }
     })
@@ -76,10 +79,36 @@ app.post('/attractions', (req, res)=>{
     const userlat = req.body.lat
     const userlng = req.body.lng
     let preference = []
+    let useremail = ""
     let radius = default_radius
     let attractions = []
-    if(req.body.preference){
-        preference = req.body.preference
+    console.log("getting attractions:")
+    //If user is logged in, then we use user account's preference
+    if(req.body.email){
+        console.log(req.body.email)
+        useremail = req.body.email
+        let found = false
+        user_data.forEach((user)=>{
+            if(user.email === useremail){
+                found = true
+                preference = user.preference
+                console.log(user.name)
+                console.log(preference)
+            }
+        })
+        if(!found){
+            console.log("user not found")
+            if(req.body.preference){
+                preference = req.body.preference
+            }
+        }
+
+    }
+    //If user is not logged in, then we use req.body.preference if defined
+    else{
+        if(req.body.preference){
+            preference = req.body.preference
+        }
     }
     if(req.body.radius){
         radius = req.body.preference
@@ -107,4 +136,6 @@ app.post('/attractions', (req, res)=>{
     res.json(result)
 })
 
+console.log("server listen at PORT:")
+console.log(PORT)
 app.listen(PORT)
