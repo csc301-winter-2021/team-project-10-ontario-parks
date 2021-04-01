@@ -12,6 +12,10 @@ import {
     Alert
 } from 'react-native';
 
+const URL = "http://192.168.1.70:3000"
+
+const log = console.log
+
 const SignUp = ({navigation}) => {
 
     const userInfo = require('../userInfo.json');
@@ -46,25 +50,50 @@ const SignUp = ({navigation}) => {
             Alert.alert("Password and Confirm Password not match");
         }
         else{
-            let found = false
-            userInfo.forEach((user)=>{
-                if(user["email"] === data.email){
-                    found = true
-                    console.log("This email is already registered")
-                    Alert.alert("This email is already registered")
+            // let found = false
+            // userInfo.forEach((user)=>{
+            //     if(user["email"] === data.email){
+            //         found = true
+            //         console.log("This email is already registered")
+            //         Alert.alert("This email is already registered")
+            //     }
+            // });
+            // if (!found){
+                // userInfo.push(newUser);
+                // back("MainPage");
+            // }
+            let newUser = {
+                "name": data.username,
+                "email": data.email,
+                "password": data.password,
+                "preference":[]
+            }
+            log("print new user")
+            log(newUser)
+            //send newUser information to server to create an account
+            let url_signUp = URL.concat("/signup")
+            const request = new Request(url_signUp, {
+                method: 'POST',
+                body: JSON.stringify(newUser),
+                headers: {
+                    'Content-type': 'application/json'
                 }
             });
-            if (!found){
-                let newUser = {
-                    "username": data.username,
-                    "email": data.email,
-                    "password": data.password
+            fetch(request)
+            .then(function(res) {
+                if (res.status === 201) {
+                    Alert.alert("success")
+
+                    // login
+                    navigation.navigate("UserMainPage", newUser);
+                } else if (res.status === 409) {
+                    Alert.alert("This email is already registered");
+                } else {
+                    Alert.alert("unknown error");
                 }
-                //send newUser information to server to create an account
-                // console.log("Account created!!")
-                userInfo.push(newUser);
-                back("MainPage");
-            }
+            }).catch((error) => {
+                log(error);
+            })
 
 
         }
