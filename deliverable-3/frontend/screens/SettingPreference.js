@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Alert, TouchableOpacity} from 'react-native';
 import { Checkbox } from 'react-native-paper';
+
+// const URL = "http://192.168.0.107:19000"
+const URL = "http://192.168.1.70:3000"
 
 const SettingPreference = ({ navigation }) =>{
     const [isNatural, setNatural] = useState(false);
@@ -9,7 +12,75 @@ const SettingPreference = ({ navigation }) =>{
     const [isHistorical, setHistorical] = useState(false);
     const [isPopular, setPopular] = useState(false);
     const lstPrefer = [];
-    
+
+    submit = ()=>{
+        //get all preference 
+        if (isNatural) {
+            lstPrefer.push('natural');
+        }
+        if (isCultural) {
+            lstPrefer.push('cultural');
+        }
+        if (isGeneral) {
+            lstPrefer.push('general');
+        }
+        if (isHistorical) {
+            lstPrefer.push('historical');
+        }
+        if (isPopular) {
+            lstPrefer.push('popular');
+        }
+
+        console.log(navigation)
+
+        let email = "";
+        let login = false;
+        // find the user's email. If the user did not login, use "" as his/her email
+        if (typeof navigation.state.params !== 'undefined') {
+            email = navigation.state.params.email;
+            login = true;
+        } 
+
+        let preference = {
+            "email": email,
+            "preference": lstPrefer
+        }
+        console.log(preference)
+
+        //post the preference to the server.
+        let url_preference = URL.concat("/preference")
+        const request = new Request(url_preference, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(preference)
+        }); 
+
+        fetch(request)
+        .then(function(res) {
+            if (res.status === 201) {
+                console.log("save perference successfully");
+                Alert.alert("save perference successfully");
+
+                //choose which mainpage to return
+                if (!login) {
+                    navigation.navigate("MainPage");
+                } else {
+                    navigation.navigate("UserMainPage");
+                } 
+                
+            } else if (res.status === 404) {
+                console.log("user doesn't exist");
+                Alert.alert("user doesn't exist");
+                navigation.navigate("MainPage");
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
 
     return (
         <View style={styles.container}>
@@ -63,8 +134,13 @@ const SettingPreference = ({ navigation }) =>{
                 />
                 <Text style={styles.checkText}>Popular</Text>
             </View>
+
             {/* Here is used to record the selected text */}
             <Text style={styles.label}>Selected Preference: {isNatural ? "Natural " : ""} {isCultural ? "Cultural " : ""} {isGeneral ? "General " : ""} {isHistorical ? "Historical " : ""} {isPopular ? "Popular " : ""}</Text> 
+            
+            <TouchableOpacity style={styles.checkboxContainer} onPress={()=>{submit()}}>
+                <Text style={styles.loginText}>Confirm</Text>
+            </TouchableOpacity>
         </View>
   );
             
