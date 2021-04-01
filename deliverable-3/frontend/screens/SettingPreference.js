@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {View, StyleSheet, Text, Alert, TouchableOpacity} from 'react-native';
 import { Checkbox } from 'react-native-paper';
 
-const URL = "http://192.168.0.107:19000"
+// const URL = "http://192.168.0.107:19000"
+const URL = "http://192.168.1.70:3000"
 
 const SettingPreference = ({ navigation }) =>{
     const [isNatural, setNatural] = useState(false);
@@ -30,12 +31,15 @@ const SettingPreference = ({ navigation }) =>{
             lstPrefer.push('popular');
         }
 
+        console.log(navigation)
+
+        let email = "";
+        let login = false;
         // find the user's email. If the user did not login, use "" as his/her email
-        if (typeof navigation.state.params.email === 'undefined') {
-            let email = ""
-        } else {
-            let email = navigation.state.params.email
-        }
+        if (typeof navigation.state.params !== 'undefined') {
+            email = navigation.state.params.email;
+            login = true;
+        } 
 
         let preference = {
             "email": email,
@@ -56,18 +60,18 @@ const SettingPreference = ({ navigation }) =>{
 
         fetch(request)
         .then(function(res) {
-            if (req.status === 201) {
+            if (res.status === 201) {
                 console.log("save perference successfully");
                 Alert.alert("save perference successfully");
 
                 //choose which mainpage to return
-                if (typeof navigation.state.params.email === 'undefined') {
+                if (!login) {
                     navigation.navigate("MainPage");
                 } else {
                     navigation.navigate("UserMainPage");
                 } 
                 
-            } else if (req.status === 404) {
+            } else if (res.status === 404) {
                 console.log("user doesn't exist");
                 Alert.alert("user doesn't exist");
                 navigation.navigate("MainPage");
