@@ -17,6 +17,7 @@ const Map = ({navigation}) => {
   const [ready, setReady] = useState(false);
   const [buildings, setBuildings] = useState([]);
   useEffect(() => {
+
     (async () => {
       // request permissions
       let { status } = await Location.requestPermissionsAsync();
@@ -33,7 +34,19 @@ const Map = ({navigation}) => {
         lng: coords.longitude
       }
       setLocation(location_);
-      console.log(location);
+
+      let info_ = {
+        lat: location.lat,
+        lng: location.lng
+      }
+      if (navigation.state.params){
+        info_ = {
+          lat: location.lat,
+          lng: location.lng,
+          email: navigation.state.params.email
+        }
+      }
+
 
       /**
        * get array of object with building info
@@ -46,25 +59,25 @@ const Map = ({navigation}) => {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(location)
+        body: JSON.stringify(info_)
       });
       let buildings_ = await res.json()
       setBuildings(buildings_)
       console.log(buildings)
+      console.log(info_)
 
       setReady(true);
     })();
   }, []);
 
   const goToDetail = (attraction) => {
+    console.log(attraction)
     if (attraction) {
         navigation.navigate('AttractionDetail', {
-            detail: attraction.description,
-            title: attraction.name,
+            attraction: attraction
         })
     }
 }
-
 
   return(
 

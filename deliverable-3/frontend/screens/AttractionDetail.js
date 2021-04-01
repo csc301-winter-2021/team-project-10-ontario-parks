@@ -1,25 +1,24 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
-const AttractionDetail = (props) => {
+const AttractionDetail = ({navigation}) => {
   /**
    * A detail page that provides more information about the infrastructure. 
    * */ 
-
-    const { detail, title } = props.navigation.state.params;
+    const { attraction } = navigation.state.params;
     console.log("Detail:")
-    console.log(title)
+    console.log(attraction.name)
     return (
         <ScrollView>
         <View style={styles.screen}>
             {/* dsplays the name of the infrastructure */}
             <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>{title}</Text>
+            <Text style={styles.titleText}>{attraction.name}</Text>
             </View>
         
             {/* dsplays a description of the infrastructure */}
             <View style={styles.descriptionContainer}>
-            <Text>{detail}</Text>
+            <Text>{attraction.description}</Text>
             </View>
         </View>
         </ScrollView>
