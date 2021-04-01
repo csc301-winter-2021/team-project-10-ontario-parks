@@ -15,7 +15,7 @@ let attractionjson = fs.readFileSync("./data/attraction_data.json", "utf-8")
 let attraction_data = JSON.parse(attractionjson)
 
 //handle login request
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
     const useremail = req.body.email
     const userpassword = req.body.password
     let found = false
