@@ -16,11 +16,14 @@ const MainPage = ({navigation}) => {
 
     log(user_info)
 
-
-
     //function allow user to switch the pages when call
-    const pressHandler = (page, user_info) => {
+    const pressHandler = (page) => {
         navigation.navigate(page, user_info);
+    }
+
+    //function for logout
+    const pressLogout = (page) => {
+        navigation.navigate(page);
     }
 
     return (
@@ -35,7 +38,7 @@ const MainPage = ({navigation}) => {
                 <Text style={styles.loginText}>Map</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Login') }}>
+            <TouchableOpacity style={styles.button} onPress={() => { pressLogout('MainPage') }}>
                 <Text style={styles.loginText}>Logout</Text>
             </TouchableOpacity>
 

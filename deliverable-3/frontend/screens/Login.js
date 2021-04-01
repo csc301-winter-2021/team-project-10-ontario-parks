@@ -15,9 +15,7 @@ import {
 const URL = "http://192.168.1.70:3000"
  
 // export default function Login() {
-const Login = ({navigation, user_cookie}) => {
-
-  console.log(navigation.state.params.name);
+const Login = ({navigation}) => {
 
   const[currUser, setCurrUser] = useState(null);
   const[found, setFound] = useState(false);
@@ -54,8 +52,6 @@ const Login = ({navigation, user_cookie}) => {
         password: password
     }
 
-    console.log(user)
-
     let url_login = URL.concat("/login")
 
     const request = new Request(url_login, {
@@ -70,7 +66,6 @@ const Login = ({navigation, user_cookie}) => {
         if (res.status === 200) {
             // login here
             navigation.navigate("UserMainPage", user);
-
             
         } else if (res.status === 404) {
             console.log("404 Not found for this user");
