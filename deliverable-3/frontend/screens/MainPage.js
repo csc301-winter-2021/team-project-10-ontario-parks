@@ -14,9 +14,9 @@ const MainPage = (props) => {
         <View style={styles.container}>
             <Image style={styles.image} source={require("./../components/photos/LogoLogin.jpg")} />
             
-            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('SettingPreference') }}>
+            {/* <TouchableOpacity style={styles.button} onPress={() => { pressHandler('SettingPreference') }}>
                 <Text style={styles.loginText}>Setting Preference</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
                 <Text style={styles.loginText}>Map</Text>
