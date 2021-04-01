@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 app.use(express.json())
-PORT = 3000
+const PORT = process.env.PORT || 3000;
 
 const default_radius = 1
 
