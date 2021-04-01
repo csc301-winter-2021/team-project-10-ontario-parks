@@ -11,6 +11,8 @@ import {
   TouchableOpacity,
   Alert
 } from "react-native";
+
+const URL = "http://192.168.1.70:3000"
  
 // export default function Login() {
 const Login = ({navigation}) => {
@@ -29,21 +31,52 @@ const Login = ({navigation}) => {
   }
 
   doLogin = ()=>{
-    setFound(false);
-    data.forEach((user) =>{
-      if(user["email"] === email && user["password"] === password){
-        setFound(true);
-        setCurrUser(user)
-        console.log(user["username"], "Login!!");
-      }
+    // setFound(false);
+    // data.forEach((user) =>{
+    //   if(user["email"] === email && user["password"] === password){
+    //     setFound(true);
+    //     setCurrUser(user)
+    //     console.log(user["username"], "Login!!");
+    //   }
+    // });
+    // if (!found){
+    //   console.log("Email or Password incorrect!!");
+    //   Alert.alert('Email or Password incorrect!!');
+    // }
+    // else{
+    //   navigation.navigate("MainPage");
+    // }
+
+    let user = {
+        email: email,
+        password: password
+    }
+
+    let url_login = URL.concat("/login")
+
+    const request = new Request(url_login, {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+            'Content-type': 'application/json'
+        }
     });
-    if (!found){
-      console.log("Email or Password incorrect!!");
-      Alert.alert('Email or Password incorrect!!');
-    }
-    else{
-      navigation.navigate("MainPage");
-    }
+    fetch(request)
+    .then(function(res) {
+        if (res.status === 200) {
+            // login here
+            navigation.navigate("UserMainPage", user);
+            
+        } else if (res.status === 404) {
+            console.log("404 Not found for this user");
+            Alert.alert("404 Not found for this user\nemail or password incorrect");
+            
+        } else {
+            Alert.alert("unknown error\nPlease Try again");
+        }
+    }).catch((error) => {
+        console.log(error);
+    })
   }
  
   return (
@@ -90,8 +123,8 @@ const styles = StyleSheet.create({
   },
  
   image: {
-  	height: 100,
-  	width: "45%",
+    height: 100,
+    width: "45%",
     marginBottom: 40,
   },
  
