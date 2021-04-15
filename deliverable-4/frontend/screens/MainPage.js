@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Button, StyleSheet, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 import Header from '../components/Header';
+import Voice from '@react-native-voice/voice';
 
 const MainPage = (props) => {
     const tytle = "Explore Ontario";
@@ -26,7 +27,7 @@ const MainPage = (props) => {
                 <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
+            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map'); Voice.start('en-US'); }}>
                 <Text style={styles.loginText}>Start</Text>
             </TouchableOpacity>
             

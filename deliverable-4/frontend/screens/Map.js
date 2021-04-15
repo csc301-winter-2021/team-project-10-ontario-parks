@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Speech from 'expo-speech';
+import Voice from '@react-native-voice/voice';
 
 //backend server will run at localhost:3000
 //To run the app correctly you have to:
@@ -18,7 +19,6 @@ var nearest_dis = -1;  // recording the nearest place's distance from the user
 var ifStarted = false; // recording if start button is pressed
 
 const Map = ({navigation}) => {
-
   // used in OnStart for finding the nearest
   function checkDistance(item) {
     const res = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, item.lat, item.lng);
@@ -43,22 +43,52 @@ const Map = ({navigation}) => {
     ifStarted = true;
 
     // for loop to find nearest building
-    const nearest = buildings_test.filter(checkDistance);
+    function findNearestBuilding() {
+      const nearest = buildings_test.filter(checkDistance);
 
-    const dis = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, nearest.lat, nearest.lng);
+      const dis = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, nearest.lat, nearest.lng);
 
-    text = "There is a place called " + nearest_test.name;
-    text = text + " which is " + Math.round(nearest_dis).toString() + "kilometers from you";
+      text = "There is a place called " + nearest_test.name;
+      text = text + " which is " + Math.round(nearest_dis).toString() + "kilometers from you";
 
-    // delete current nearest from buildings_test (doing this for next button)
-    buildings_test = buildings_test.filter(deleteItem);
-
+      return text;
+    }
+  
     //Speech.speak('text', options);
-    Speech.speak(text,{
+    Speech.speak(findNearestBuilding(),{
       language: 'en',
       pitch: 1,
       rate: 1
     })
+
+    // voice recognizing
+    var speechResults = await Voice.onSpeechResults();
+    var userVoice = JSON.stringify(speechResults).toLocaleLowerCase;
+
+    if (userVoice === 'yes') {
+      // text-to-speech
+      Speech.speak(findNearestBuilding(),{
+        language: 'en',
+        pitch: 1,
+        rate: 1
+      })
+    } else if (userVoice === 'no') {
+      // provide next hook
+      Speech.speak(findNearestBuilding(),{
+        language: 'en',
+        pitch: 1,
+        rate: 1
+      })
+    } else if (userVoice === 'stop') {
+      // stop listening user audio
+      Voice.stop();
+      Voice.removeAllListeners();
+      // delete current nearest from buildings_test (doing this for next button)
+      buildings_test = buildings_test.filter(deleteItem);
+    } else if (userVoice === 'continue') {
+      // start listening user audio
+      Voice.start('en-US');
+    }
   }
 
   function checkDistance(item) {
@@ -273,3 +303,4 @@ container: {
 });
 
 export default Map;
+
