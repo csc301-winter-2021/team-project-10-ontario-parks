@@ -10,141 +10,196 @@ import Voice from '@react-native-voice/voice';
 //1. Make sure your mobile device and computer(device that run the server) are connected to a same wifi
 //2. Change The URL below such that the IP address of the URL is your computer's IP address
 // Make sure you run the server before run the app
-const URL = "http://192.168.1.70:3000"
-
-var buildings_test = {};  // recording all the buliding list for finding the nearest
-var location_test = {};  // recording the current user's location
-var nearest_test = {};  // recording the nearest place from the user
-var nearest_dis = -1;  // recording the nearest place's distance from the user
-var ifStarted = false; // recording if start button is pressed
+const URL = "http://192.168.8.153:3000"
 
 const Map = ({navigation}) => {
-  // used in OnStart for finding the nearest
-  function checkDistance(item) {
-    const res = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, item.lat, item.lng);
-    if (nearest_dis == -1) {
-      nearest_dis = res;
-      nearest_test = item;
-    } else if (res < nearest_dis) {
-      nearest_dis = res;
-      nearest_test = item;
-    }
-    return res;
-  }
-
-  // used in OnStart for finding the nearest
-  function deleteItem(item) {
-    return item.name != nearest_test.name;
-  }
+  const GOOD_DISTANCE = 900; // km, 900 is for testing the correctness of the code. should be 3
+  const [isStart, setIsStart] = useState(false);
+  const [location, setLocation] = useState({ lat: 43.663, lng: -79.395 });//default value Uoft
+  const [error, setError] = useState(null);
+  const [ready, setReady] = useState(false);
+  const [buildings, setBuildings] = useState([]);
+  const [nearestBuilding, setNearestBuilding] = useState(null);
+  const [seenBuildings, setSeenBuildings] = useState([]);
 
   // handle "test_start" button
-  const onStart = (text) => {
-
-    ifStarted = true;
-
-    // for loop to find nearest building
-    function findNearestBuilding() {
-      const nearest = buildings_test.filter(checkDistance);
-
-      const dis = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, nearest.lat, nearest.lng);
-
-      text = "There is a place called " + nearest_test.name;
-      text = text + " which is " + Math.round(nearest_dis).toString() + "kilometers from you";
-
-      return text;
-    }
-  
-    //Speech.speak('text', options);
-    Speech.speak(findNearestBuilding(),{
+  const onStart = () => {
+    setIsStart(true)
+    Speech.speak("app started",{
       language: 'en',
       pitch: 1,
       rate: 1
     })
-
-    // voice recognizing
-    var speechResults = await Voice.onSpeechResults();
-    var userVoice = JSON.stringify(speechResults).toLocaleLowerCase;
-
-    if (userVoice === 'yes') {
-      // text-to-speech
-      Speech.speak(findNearestBuilding(),{
-        language: 'en',
-        pitch: 1,
-        rate: 1
-      })
-    } else if (userVoice === 'no') {
-      // provide next hook
-      Speech.speak(findNearestBuilding(),{
-        language: 'en',
-        pitch: 1,
-        rate: 1
-      })
-    } else if (userVoice === 'stop') {
-      // stop listening user audio
-      Voice.stop();
-      Voice.removeAllListeners();
-      // delete current nearest from buildings_test (doing this for next button)
-      buildings_test = buildings_test.filter(deleteItem);
-    } else if (userVoice === 'continue') {
-      // start listening user audio
-      Voice.start('en-US');
-    }
+  }
+  const startApp=()=>{
+    
   }
 
-  function checkDistance(item) {
-    const res = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, item.lat, item.lng);
-    if (nearest_dis == -1) {
-      nearest_dis = res;
-      nearest_test = item;
-    } else if (res < nearest_dis) {
-      nearest_dis = res;
-      nearest_test = item;
-    }
-    return res;
-  }
+  //   // // voice recognizing
+  //   // var speechResults = Voice.onSpeechResults();
+  //   // var userVoice = JSON.stringify(speechResults).toLocaleLowerCase;
+
+  // //   if (userVoice === 'yes') {
+  // //     // text-to-speech
+  // //     Speech.speak(findNearestBuilding(),{
+  // //       language: 'en',
+  // //       pitch: 1,
+  // //       rate: 1
+  // //     })
+  // //   } else if (userVoice === 'no') {
+  // //     // provide next hook
+  // //     Speech.speak(findNearestBuilding(),{
+  // //       language: 'en',
+  // //       pitch: 1,
+  // //       rate: 1
+  // //     })
+  // //   } else if (userVoice === 'stop') {
+  // //     // stop listening user audio
+  // //     Voice.stop();
+  // //     Voice.removeAllListeners();
+  // //     // delete current nearest from buildings_test (doing this for next button)
+  // //     buildings_test = buildings_test.filter(deleteItem);
+  // //   } else if (userVoice === 'continue') {
+  // //     // start listening user audio
+  // //     Voice.start('en-US');
+  // //   }
+  // // }
 
   // handle "test_next" button
-  const onNext = (text) => {
-
-    if (ifStarted == false) {
-      Speech.speak("please press start button first",{
+  const onNext = async () => {
+    Speech.stop()
+    let text = ""
+    if (isStart === false) {
+      Speech.speak("please start the app first",{
         language: 'en',
         pitch: 1,
         rate: 1
       })
       return;
-    } else if (buildings_test.length == 0) {
-      Speech.speak("no more places can be found, please try start button again",{
+    } else if (buildings.length === 0) {
+      Speech.speak("no more places can be found",{
         language: 'en',
         pitch: 1,
         rate: 1
       })
-      ifStarted = false;
+      setIsStart(false);
       return;
     }
 
-    nearest_dis = -1
+    let result = await findNearestBuildingNotSeen();
+    console.log(result)
+    console.log("========================")
+    console.log(nearestBuilding)
 
-    // for loop to find nearest building
-    const nearest = buildings_test.filter(checkDistance);
-
-    const dis = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, nearest.lat, nearest.lng);
-
-    text = "There is another place called " + nearest_test.name;
-    text = text + " which is " + Math.round(nearest_dis).toString() + "kilometers from you";
-
-    buildings_test = buildings_test.filter(deleteItem);
-
-    //Speech.speak('text', options);
-    Speech.speak(text,{
-      language: 'en',
-      pitch: 1,
-      rate: 1
-    })
+      //if theres no Building that not seen
+      if(result.attraction === null){
+        text = "You have seen all the attractions information"
+      
+      }
+      // nearestBuilding is GOOD_DISTANCE away from user
+      else if(result.distance > GOOD_DISTANCE){
+        text = "There is no attraction in this area"
+      
+      }
+      else{
+        text = "There is another place called " + result.attraction.name;
+        text = text + " which is " + Math.round(result.distance).toString() + "kilometers from you";
+      }
+      //Speech.speak('text', options);
+      Speech.speak(text,{
+        language: 'en',
+        pitch: 1,
+        rate: 1
+      })
   }
 
-  // ################################################################
-  // helper function for calculating distance
+  const stopSpeech = () =>{
+    Speech.stop()
+  }
+  // ###################
+  // pause and resume not available on Android
+  const pauseSpeech = () =>{
+    Speech.pause()
+  }
+  const resumeSpeech = () =>{
+    Speech.resume()
+  }
+    // ###################
+  const onDetail = () =>{
+    if (nearestBuilding){
+      let text = nearestBuilding.attraction.description
+      Speech.speak(text,{
+        language: 'en',
+        pitch: 1,
+        rate: 1
+      })
+    }
+  }
+  async function updateUserLocation(){
+      // update user current location
+      let { coords } = await Location.getCurrentPositionAsync({});
+      let location_ = {
+        lat: coords.latitude,
+        lng: coords.longitude
+      }
+      setLocation(location_);
+  }
+  async function findNearestBuildingNotSeen() {
+
+      await updateUserLocation();
+
+      let notSeen = buildings.filter(attraction => !seenBuildings.includes(attraction) )
+      console.log("NOTSEEN")
+      console.log(notSeen)
+      let nearest = null
+      let nearest_distance = -1
+      notSeen.forEach((attraction) =>{
+        let d = getDistanceFromLatLonInKm(location.lat, location.lng, attraction.lat, attraction.lng)
+        if (nearest_distance === -1){
+          nearest_distance = d
+          nearest = attraction
+        }
+        else if(d<nearest_distance){
+          nearest_distance = d
+          nearest = attraction
+        }
+      })
+      if(nearest !== null){
+        //set the Nearest attraction
+        setNearestBuilding({
+          attraction: nearest,
+          distance: nearest_distance
+        })
+        //update the seen buildings
+        const new_seen = seenBuildings
+        new_seen.push(nearest)
+        setSeenBuildings(new_seen)
+      }
+      else{
+        setNearestBuilding(null)
+      }
+      return {attraction: nearest, distance: nearest_distance}
+    
+  }
+
+  // // function checkDistance(item) {
+  // //   const res = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, item.lat, item.lng);
+  // //   if (nearest_dis == -1) {
+  // //     nearest_dis = res;
+  // //     nearest_test = item;
+  // //   } else if (res < nearest_dis) {
+  // //     nearest_dis = res;
+  // //     nearest_test = item;
+  // //   }
+  // //   return res;
+  // // }
+  // //   // used in OnStart for finding the nearest
+  // // function deleteItem(item) {
+  // //   return item.name != nearest_test.name;
+  // // }
+
+  // // ################################################################
+  // // helper function for calculating distance
   function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
@@ -162,13 +217,9 @@ const Map = ({navigation}) => {
   function deg2rad(deg) {
     return deg * (Math.PI/180)
   }
-  // ################################################################
+  // // ################################################################
 
 
-  const [location, setLocation] = useState({ lat: 43.663, lng: -79.395 });
-  const [error, setError] = useState(null);
-  const [ready, setReady] = useState(false);
-  const [buildings, setBuildings] = useState([]);
   useEffect(() => {
 
     (async () => {
@@ -214,16 +265,13 @@ const Map = ({navigation}) => {
         },
         body: JSON.stringify(info_)
       });
-      let buildings_ = await res.json()
-      setBuildings(buildings_)
-      // console.log(buildings)
-      // console.log(info_)
-      console.log("ready!")
-
-      buildings_test = buildings_;
-      location_test = location_;
-
+      setBuildings(await res.json())
+      setIsStart(false);
+      setSeenBuildings([]);
       setReady(true);
+      setNearestBuilding(null);
+      onStart();
+      console.log("ready!")
     })();
   }, []);
 
@@ -234,18 +282,23 @@ const Map = ({navigation}) => {
             attraction: attraction
         })
     }
-}
-
+  }
   return(
-
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={() => { onStart() }}>
-        <Text style={styles.loginText}>Test start</Text>
+      <TouchableOpacity style={styles.button} onPress={() => { onNext() }}>
+        <Text style={styles.loginText}>Start audio</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => { onNext() }}>
-        <Text style={styles.loginText}>Test next</Text>
+        <Text style={styles.loginText}>Next attraction</Text>
       </TouchableOpacity>
-        {ready && (
+      <TouchableOpacity style={styles.button} onPress={() => { onDetail() }}>
+        <Text style={styles.loginText}>Detail</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => { stopSpeech() }}>
+        <Text style={styles.loginText}>Stop</Text>
+      </TouchableOpacity>
+
+        {/* {ready && (
           <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.map}
@@ -277,30 +330,28 @@ const Map = ({navigation}) => {
               pinColor={'#00ffff'}
               />
           </MapView>
-        )}
-  </View>
-);
-};
+        )} */}
+  </View>);
+}
 
 const styles = StyleSheet.create({
-container: {
-    ...StyleSheet.absoluteFillObject,
-    height: '100%',
-    width: '100%',
-  },
-  map: {
-    // ...StyleSheet.absoluteFillObject,
-  },
-  button: {
-        width: "40%",
-        borderRadius: 25,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 40,
-        backgroundColor: "aliceblue",
-      }
-});
+  container: {
+      ...StyleSheet.absoluteFillObject,
+      height: '100%',
+      width: '100%',
+    },
+    map: {
+      ...StyleSheet.absoluteFillObject,
+    },
+    button: {
+          width: "40%",
+          borderRadius: 25,
+          height: 50,
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 40,
+          backgroundColor: "aliceblue",
+        }
+})
 
 export default Map;
-

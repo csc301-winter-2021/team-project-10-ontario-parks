@@ -42,9 +42,9 @@ const MainPage = ({navigation}) => {
                 <Text style={styles.loginText}>Logout</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
+            {/* <TouchableOpacity style={styles.button} onPress={() => { pressHandler('Map') }}>
                 <Text style={styles.loginText}>Start</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             
         </View>
     );

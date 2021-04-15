@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {View, StyleSheet, Text, Alert, TouchableOpacity} from 'react-native';
 import { Checkbox } from 'react-native-paper';
 
-// const URL = "http://192.168.0.107:19000"
-const URL = "http://192.168.1.70:3000"
+const URL = "http://192.168.8.153:3000"
 
 const SettingPreference = ({ navigation }) =>{
     const [isNatural, setNatural] = useState(false);

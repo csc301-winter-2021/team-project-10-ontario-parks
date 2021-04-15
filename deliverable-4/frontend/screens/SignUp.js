@@ -12,7 +12,7 @@ import {
     Alert
 } from 'react-native';
 
-const URL = "http://192.168.1.70:3000"
+const URL = "http://192.168.8.153:3000"
 
 const log = console.log
 
