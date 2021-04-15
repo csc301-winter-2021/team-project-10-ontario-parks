@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Speech from 'expo-speech';
-import Voice from '@react-native-voice/voice';
+import Voice from 'react-native-voice';
 
 //backend server will run at localhost:3000
 //To run the app correctly you have to:
@@ -23,48 +23,44 @@ const Map = ({navigation}) => {
   const [seenBuildings, setSeenBuildings] = useState([]);
   const [startStopBtn, setStartStopBtn] = useState("START");
 
-  //   // // voice recognizing
-  //   // var speechResults = Voice.onSpeechResults();
-  //   // var userVoice = JSON.stringify(speechResults).toLocaleLowerCase;
 
-  // //   if (userVoice === 'yes') {
-  // //     // text-to-speech
-  // //     Speech.speak(findNearestBuilding(),{
-  // //       language: 'en',
-  // //       pitch: 1,
-  // //       rate: 1
-  // //     })
-  // //   } else if (userVoice === 'no') {
-  // //     // provide next hook
-  // //     Speech.speak(findNearestBuilding(),{
-  // //       language: 'en',
-  // //       pitch: 1,
-  // //       rate: 1
-  // //     })
-  // //   } else if (userVoice === 'stop') {
-  // //     // stop listening user audio
-  // //     Voice.stop();
-  // //     Voice.removeAllListeners();
-  // //     // delete current nearest from buildings_test (doing this for next button)
-  // //     buildings_test = buildings_test.filter(deleteItem);
-  // //   } else if (userVoice === 'continue') {
-  // //     // start listening user audio
-  // //     Voice.start('en-US');
-  // //   }
-  // // }
+  // const startVoice=()=>{
+  //   // voice recognizing
+  //   var speechResults = Voice.onSpeechResults();
+  //   var userVoice = JSON.stringify(speechResults).toLocaleLowerCase;
+  //   console.log(userVoice)
+  //   if (userVoice === 'yes') {
+  //     // text-to-speech
+  //     Speech.speak(findNearestBuilding(),{
+  //       language: 'en',
+  //       pitch: 1,
+  //       rate: 1
+  //     })
+  //   } else if (userVoice === 'no') {
+  //     // provide next hook
+  //     Speech.speak(findNearestBuilding(),{
+  //       language: 'en',
+  //       pitch: 1,
+  //       rate: 1
+  //     })
+  //   } else if (userVoice === 'stop') {
+  //     // stop listening user audio
+  //     Voice.stop();
+  //     Voice.removeAllListeners();
+  //     // delete current nearest from buildings_test (doing this for next button)
+  //     buildings_test = buildings_test.filter(deleteItem);
+  //   } else if (userVoice === 'continue') {
+  //     // start listening user audio
+  //     Voice.start('en-US');
+  //   }
+  // }
+  
 
   // handle "test_next" button
   const onNext = async () => {
     Speech.stop()
     let text = ""
-    // if (isStart === false) {
-    //   Speech.speak("please start the app first",{
-    //     language: 'en',
-    //     pitch: 1,
-    //     rate: 1
-    //   })
-    //   return;
-    // }
+
     if (buildings.length === 0) {
       Speech.speak("no more places can be found",{
         language: 'en',
@@ -171,21 +167,6 @@ const Map = ({navigation}) => {
     
   }
 
-  // // function checkDistance(item) {
-  // //   const res = getDistanceFromLatLonInKm(location_test.lat, location_test.lng, item.lat, item.lng);
-  // //   if (nearest_dis == -1) {
-  // //     nearest_dis = res;
-  // //     nearest_test = item;
-  // //   } else if (res < nearest_dis) {
-  // //     nearest_dis = res;
-  // //     nearest_test = item;
-  // //   }
-  // //   return res;
-  // // }
-  // //   // used in OnStart for finding the nearest
-  // // function deleteItem(item) {
-  // //   return item.name != nearest_test.name;
-  // // }
 
   // // ################################################################
   // // helper function for calculating distance
@@ -353,30 +334,37 @@ const styles = StyleSheet.create({
           backgroundColor: "aliceblue",
     },
     ssbutton: {
-      width: "40%",
+      width: "25%",
       borderRadius: 25,
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginLeft: 'auto',
+      marginRight: 10,
+      marginBottom: 10,
       backgroundColor: "aliceblue",
     },
     nextbutton: {
-      width: "40%",
+      width: "25%",
       borderRadius: 25,
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginTop: 'auto',
+      marginLeft: 'auto',
+      marginRight: 10,
+      marginBottom: 10,
       backgroundColor: "aliceblue",
     },
     detailbutton: {
-      width: "40%",
+      width: "25%",
       borderRadius: 25,
       height: 50,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 40,
+      marginLeft: 'auto',
+      marginRight: 10,
+      marginBottom: 10,
       backgroundColor: "aliceblue",
     }
 })
