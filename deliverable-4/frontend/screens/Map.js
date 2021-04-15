@@ -21,19 +21,7 @@ const Map = ({navigation}) => {
   const [buildings, setBuildings] = useState([]);
   const [nearestBuilding, setNearestBuilding] = useState(null);
   const [seenBuildings, setSeenBuildings] = useState([]);
-
-  // handle "test_start" button
-  const onStart = () => {
-    setIsStart(true)
-    Speech.speak("app started",{
-      language: 'en',
-      pitch: 1,
-      rate: 1
-    })
-  }
-  const startApp=()=>{
-    
-  }
+  const [startStopBtn, setStartStopBtn] = useState("START");
 
   //   // // voice recognizing
   //   // var speechResults = Voice.onSpeechResults();
@@ -69,14 +57,15 @@ const Map = ({navigation}) => {
   const onNext = async () => {
     Speech.stop()
     let text = ""
-    if (isStart === false) {
-      Speech.speak("please start the app first",{
-        language: 'en',
-        pitch: 1,
-        rate: 1
-      })
-      return;
-    } else if (buildings.length === 0) {
+    // if (isStart === false) {
+    //   Speech.speak("please start the app first",{
+    //     language: 'en',
+    //     pitch: 1,
+    //     rate: 1
+    //   })
+    //   return;
+    // }
+    if (buildings.length === 0) {
       Speech.speak("no more places can be found",{
         language: 'en',
         pitch: 1,
@@ -103,7 +92,7 @@ const Map = ({navigation}) => {
       }
       else{
         text = "There is another place called " + result.attraction.name;
-        text = text + " which is " + Math.round(result.distance).toString() + "kilometers from you";
+        text = text + " which is " + Math.round(result.distance).toString() + "kilometers from hear";
       }
       //Speech.speak('text', options);
       Speech.speak(text,{
@@ -270,7 +259,8 @@ const Map = ({navigation}) => {
       setSeenBuildings([]);
       setReady(true);
       setNearestBuilding(null);
-      onStart();
+      setIsStart(false)
+      setStartStopBtn("START")
       console.log("ready!")
     })();
   }, []);
@@ -283,22 +273,22 @@ const Map = ({navigation}) => {
         })
     }
   }
+
+  const startAndStop = ()=>{
+    if(isStart){
+      stopSpeech()
+      setIsStart(false)
+      setStartStopBtn("START")
+    }
+    else{
+      setIsStart(true)
+      onNext()
+      setStartStopBtn("STOP")
+    }
+  }
   return(
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={() => { onNext() }}>
-        <Text style={styles.loginText}>Start audio</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => { onNext() }}>
-        <Text style={styles.loginText}>Next attraction</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => { onDetail() }}>
-        <Text style={styles.loginText}>Detail</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => { stopSpeech() }}>
-        <Text style={styles.loginText}>Stop</Text>
-      </TouchableOpacity>
-
-        {/* {ready && (
+        {ready && (
           <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.map}
@@ -328,9 +318,19 @@ const Map = ({navigation}) => {
                 longitude: parseFloat(location.lng)
               }}
               pinColor={'#00ffff'}
-              />
+            />
           </MapView>
-        )} */}
+        )}
+
+        <TouchableOpacity disabled={!isStart} style={styles.nextbutton} onPress={() => { onNext() }}>
+            <Text style={styles.loginText}>Next</Text>
+          </TouchableOpacity>
+          <TouchableOpacity disabled={!isStart} style={styles.detailbutton} onPress={() => { onDetail() }}>
+              <Text style={styles.loginText}>Detail</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.ssbutton} onPress={() => { startAndStop() }}>
+            <Text style={styles.loginText}>{startStopBtn}</Text>
+        </TouchableOpacity>
   </View>);
 }
 
@@ -351,7 +351,34 @@ const styles = StyleSheet.create({
           justifyContent: "center",
           marginTop: 40,
           backgroundColor: "aliceblue",
-        }
+    },
+    ssbutton: {
+      width: "40%",
+      borderRadius: 25,
+      height: 50,
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 40,
+      backgroundColor: "aliceblue",
+    },
+    nextbutton: {
+      width: "40%",
+      borderRadius: 25,
+      height: 50,
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 40,
+      backgroundColor: "aliceblue",
+    },
+    detailbutton: {
+      width: "40%",
+      borderRadius: 25,
+      height: 50,
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 40,
+      backgroundColor: "aliceblue",
+    }
 })
 
 export default Map;
