@@ -104,3 +104,6 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  ## Licenses 
 
  * We will resort to not having an open source license due to the fact that we are working with Ontario Parks, which operates under the government's supervision. While this application tries to meet the visions of the Arrowhead Assistant Superintendent, John Leadston, we are not sure which directions he intends to go with the application, so we will keep it private for now.
+ 
+ ## Video guide for the app:
+ https://www.youtube.com/watch?v=ci3fq98RqIo
