@@ -1,6 +1,6 @@
 # Ontario Parks
 ## Description 
- * Our group is currently working with the Assistant Park Superintendent of Arrowhead Provincial Park in order to extend on an app previously built by another team. Our application 
+ * Our group worked with the Assistant Park Superintendent of Arrowhead Provincial Park in order to extend on an app previously built by another team. Our application 
  aims to improve the experience and potentially induce interest of travelers travling through certain areas of Ontario by providing an audio tour. Depending on the location of 
  the traveler and their indicated interests, the application plays short audio introductions on what their area has to offer. Ultimately, users will be introduced to locations, cultures,
  histories, and products that they were previously unaware of through the application while traveling.
